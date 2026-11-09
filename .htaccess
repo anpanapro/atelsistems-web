@@ -1,0 +1,26 @@
+# Proteccion contra listado de directorios
+Options -Indexes
+
+# Bloquear acceso silencioso a archivos de entorno
+<FilesMatch "\.(env|bat|sh|ps1|conf|md)$">
+    Require all denied
+</FilesMatch>
+<Files "README.md">
+    Require all denied
+</Files>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Redireccion 301 de atelmalaga.com hacia la landing de mantenimiento PCI en Malaga
+    RewriteCond %{HTTP_HOST} ^(www\.)?atelmalaga\.com$ [NC]
+    RewriteRule ^(.*)$ https://www.atelsistems.com/mantenimiento-contra-incendios/malaga/ [R=301,L]
+
+    # Forzar HTTPS y www.atelsistems.com como dominio canonico
+    RewriteCond %{HTTP_HOST} ^atelsistems\.com$ [NC]
+    RewriteRule ^(.*)$ https://www.atelsistems.com/$1 [R=301,L]
+
+    RewriteCond %{HTTP_HOST} ^(www\.)?atelsistems\.(es|eu)$ [NC]
+    RewriteRule ^(.*)$ https://www.atelsistems.com/$1 [R=301,L]
+</IfModule>
+

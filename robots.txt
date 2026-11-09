@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.atelsistems.com
+
+# Sitemaps
+Sitemap: https://www.atelsistems.com/sitemap.xml

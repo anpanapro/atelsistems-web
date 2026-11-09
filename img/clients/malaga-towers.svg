@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 128" role="img" aria-label="Málaga Towers">
+  <rect width="256" height="128" fill="#ffffff" rx="12"/>
+  <g fill="#2b2d42" font-family="'Outfit', 'Inter', 'Arial', sans-serif" text-anchor="middle">
+    <path d="M115 50h8v-20h-8zm12 0h8v-35h-8zm12 0h8v-25h-8z" fill="#8d99ae"/>
+    <text x="128" y="85" font-size="22" font-weight="bold" letter-spacing="3">MÁLAGA</text>
+    <text x="128" y="108" font-size="16" font-weight="500" fill="#ef233c" letter-spacing="4">TOWERS</text>
+  </g>
+</svg>

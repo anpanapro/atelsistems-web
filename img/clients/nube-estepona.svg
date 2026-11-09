@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 128" role="img" aria-label="Nube Estepona">
+  <rect width="256" height="128" fill="#ffffff" rx="12"/>
+  <g fill="#4ea8de" font-family="'Outfit', 'Inter', 'Arial', sans-serif" text-anchor="middle">
+    <path d="M138 25a15 15 0 0 0-25 5 12 12 0 0 0-5 23h35a12 12 0 0 0-5-28z" fill="#90e0ef"/>
+    <text x="128" y="85" font-size="28" font-weight="bold" fill="#0077b6" letter-spacing="4">NUBE</text>
+    <text x="128" y="108" font-size="14" font-weight="600" fill="#4ea8de" letter-spacing="5">ESTEPONA</text>
+  </g>
+</svg>

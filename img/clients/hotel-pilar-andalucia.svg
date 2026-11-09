@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 128" role="img" aria-label="Hotel Boutique El Pilar Andalucía">
+  <rect width="256" height="128" fill="#ffffff" rx="12"/>
+  <g fill="#1a2530" font-family="'Outfit', 'Inter', 'Arial', sans-serif" text-anchor="middle">
+    <text x="128" y="42" font-size="14" font-weight="500" letter-spacing="5" fill="#c5a880">HOTEL BOUTIQUE</text>
+    <text x="128" y="78" font-size="28" font-weight="bold" letter-spacing="2">EL PILAR</text>
+    <text x="128" y="105" font-size="14" font-weight="600" letter-spacing="4" fill="#c5a880">ANDALUCÍA</text>
+  </g>
+</svg>

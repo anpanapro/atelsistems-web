@@ -128,6 +128,118 @@
                         </div>
                     </fieldset>
 
+                    <!-- CONFIGURADOR MODULAR DE SUSCRIPCIONES PERSONALIZADAS -->
+                    <fieldset class="full-width" style="background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%); border: 2px solid #0284c7; border-radius: 14px; padding: 22px 24px; margin-top: 10px; margin-bottom: 12px; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.08);">
+                        <legend style="color: #0369a1; font-weight: 800; font-size: 1.08rem; display: inline-flex; align-items: center; gap: 8px; background: #ffffff; padding: 4px 14px; border-radius: 20px; border: 1.5px solid #0284c7; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
+                            <i class="bi bi-sliders2-vertical" style="color: #0284c7;"></i> Configurador Modular de Suscripciones (Particulariza tu Cuota)
+                        </legend>
+                        <p style="margin: 6px 0 16px; font-size: 0.92rem; color: #1e293b; line-height: 1.5;">
+                            Active los servicios técnicos que necesita su edificio, comunidad o empresa. <strong>Descuentos directos por paquete multitécnico</strong> (10% contratando 2 servicios, 20% con 3, y <strong>30% de descuento con 4 o el Abono Integral 360°</strong>).
+                        </p>
+
+                        <!-- LISTA MODULAR DE SERVICIOS Y PLANES -->
+                        <div style="display: flex; flex-direction: column; gap: 12px;">
+                            
+                            <!-- 1. PROTECCIÓN CONTRA INCENDIOS -->
+                            <div class="service-config-row" style="background: #ffffff; border: 1.5px solid #bbf7d0; border-radius: 10px; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;">
+                                <label style="display: flex; align-items: center; gap: 10px; margin: 0; cursor: pointer; font-weight: 700; color: #166534; font-size: 0.92rem; flex: 1 1 260px;">
+                                    <input type="checkbox" id="cfg-pci" name="cfg_pci" checked style="width: 19px; height: 19px; accent-color: #16a34a;">
+                                    <span><i class="bi bi-fire" style="color: #dc2626; margin-right: 4px;"></i> Protección Contra Incendios (RIPCI)</span>
+                                </label>
+                                <div style="display: flex; align-items: center; gap: 10px; flex: 1 1 280px; justify-content: flex-end;">
+                                    <select id="plan-pci" name="plan_pci" style="padding: 7px 12px; border-radius: 8px; border: 1.5px solid #86efac; background: #f0fdf4; font-size: 0.88rem; font-weight: 600; color: #166534; flex: 1; max-width: 320px;">
+                                        <option value="29" data-plan="Básico RIPCI (29€/mes)">Plan Básico RIPCI — 29 €/mes</option>
+                                        <option value="49" data-plan="Estándar Comunidades (49€/mes)" selected>Plan Estándar Comunidades — 49 €/mes (Recomendado)</option>
+                                        <option value="89" data-plan="Industrial RSCIEI (89€/mes)">Plan Industrial RSCIEI — 89 €/mes</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- 2. VIDEOVIGILANCIA CCTV -->
+                            <div class="service-config-row" style="background: #ffffff; border: 1.5px solid #bae6fd; border-radius: 10px; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;">
+                                <label style="display: flex; align-items: center; gap: 10px; margin: 0; cursor: pointer; font-weight: 700; color: #0369a1; font-size: 0.92rem; flex: 1 1 260px;">
+                                    <input type="checkbox" id="cfg-cctv" name="cfg_cctv" style="width: 19px; height: 19px; accent-color: #0284c7;">
+                                    <span><i class="bi bi-camera-video" style="color: #0284c7; margin-right: 4px;"></i> Videovigilancia CCTV & RGPD</span>
+                                </label>
+                                <div style="display: flex; align-items: center; gap: 10px; flex: 1 1 280px; justify-content: flex-end;">
+                                    <select id="plan-cctv" name="plan_cctv" style="padding: 7px 12px; border-radius: 8px; border: 1.5px solid #7dd3fc; background: #f0f9ff; font-size: 0.88rem; font-weight: 600; color: #0369a1; flex: 1; max-width: 320px;">
+                                        <option value="39" data-plan="CCTV Preventivo (39€/mes)">Plan CCTV Preventivo — 39 €/mes</option>
+                                        <option value="69" data-plan="CCTV Conectado Pro (69€/mes)" selected>Plan CCTV Conectado Pro — 69 €/mes (Recomendado)</option>
+                                        <option value="99" data-plan="CCTV Todo Incluido (99€/mes)">Plan CCTV Todo Incluido — 99 €/mes</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- 3. CONTROL DE ACCESOS Y VIDEOPORTEROS -->
+                            <div class="service-config-row" style="background: #ffffff; border: 1.5px solid #fed7aa; border-radius: 10px; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;">
+                                <label style="display: flex; align-items: center; gap: 10px; margin: 0; cursor: pointer; font-weight: 700; color: #c2410c; font-size: 0.92rem; flex: 1 1 260px;">
+                                    <input type="checkbox" id="cfg-accesos" name="cfg_accesos" style="width: 19px; height: 19px; accent-color: #ea580c;">
+                                    <span><i class="bi bi-shield-lock" style="color: #ea580c; margin-right: 4px;"></i> Porteros & Control de Accesos</span>
+                                </label>
+                                <div style="display: flex; align-items: center; gap: 10px; flex: 1 1 280px; justify-content: flex-end;">
+                                    <select id="plan-accesos" name="plan_accesos" style="padding: 7px 12px; border-radius: 8px; border: 1.5px solid #fdba74; background: #fff7ed; font-size: 0.88rem; font-weight: 600; color: #c2410c; flex: 1; max-width: 320px;">
+                                        <option value="25" data-plan="Portero Básico (25€/mes)">Plan Portero Básico — 25 €/mes</option>
+                                        <option value="45" data-plan="Accesos & Llaves Digitales (45€/mes)" selected>Plan Accesos & Llaves Digitales — 45 €/mes</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- 4. TELECOMUNICACIONES E ICT -->
+                            <div class="service-config-row" style="background: #ffffff; border: 1.5px solid #e9d5ff; border-radius: 10px; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;">
+                                <label style="display: flex; align-items: center; gap: 10px; margin: 0; cursor: pointer; font-weight: 700; color: #7e22ce; font-size: 0.92rem; flex: 1 1 260px;">
+                                    <input type="checkbox" id="cfg-ict" name="cfg_ict" style="width: 19px; height: 19px; accent-color: #9333ea;">
+                                    <span><i class="bi bi-broadcast-pin" style="color: #9333ea; margin-right: 4px;"></i> Telecomunicaciones e ICT (SETID)</span>
+                                </label>
+                                <div style="display: flex; align-items: center; gap: 10px; flex: 1 1 280px; justify-content: flex-end;">
+                                    <select id="plan-ict" name="plan_ict" style="padding: 7px 12px; border-radius: 8px; border: 1.5px solid #d8b4fe; background: #faf5ff; font-size: 0.88rem; font-weight: 600; color: #7e22ce; flex: 1; max-width: 320px;">
+                                        <option value="25" data-plan="Antena TDT Colectiva (25€/mes)">Plan Antena TDT Colectiva — 25 €/mes</option>
+                                        <option value="45" data-plan="ICT Integral 360° (45€/mes)" selected>Plan ICT Integral 360° (TDT + Satélite) — 45 €/mes</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- 5. REDES DE VOZ, DATOS Y WIFI -->
+                            <div class="service-config-row" style="background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: 10px; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;">
+                                <label style="display: flex; align-items: center; gap: 10px; margin: 0; cursor: pointer; font-weight: 700; color: #334155; font-size: 0.92rem; flex: 1 1 260px;">
+                                    <input type="checkbox" id="cfg-redes" name="cfg_redes" style="width: 19px; height: 19px; accent-color: #475569;">
+                                    <span><i class="bi bi-diagram-3" style="color: #475569; margin-right: 4px;"></i> Redes de Voz, Datos y WiFi Mesh</span>
+                                </label>
+                                <div style="display: flex; align-items: center; gap: 10px; flex: 1 1 280px; justify-content: flex-end;">
+                                    <select id="plan-redes" name="plan_redes" style="padding: 7px 12px; border-radius: 8px; border: 1.5px solid #94a3b8; background: #f8fafc; font-size: 0.88rem; font-weight: 600; color: #334155; flex: 1; max-width: 320px;">
+                                        <option value="49" data-plan="Rack & Red Pyme (49€/mes)">Plan Rack & Red Pyme — 49 €/mes</option>
+                                        <option value="89" data-plan="Conectividad Crítica & WiFi (89€/mes)" selected>Plan Conectividad Crítica & WiFi — 89 €/mes</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- RESUMEN INTERACTIVO DE CUOTA CALCULADA EN TIEMPO REAL -->
+                        <div id="calc-summary-box" style="background: #ffffff; border: 2px solid #0284c7; border-radius: 12px; padding: 16px 20px; margin-top: 16px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; box-shadow: 0 4px 12px rgba(2, 132, 199, 0.1);">
+                            <div>
+                                <div style="font-size: 0.88rem; color: #475569; font-weight: 600;">
+                                    Servicios en suscripción: <strong id="calc-services-count" style="color: #0f172a; font-size: 0.95rem;">1 servicio activo</strong>
+                                </div>
+                                <div id="calc-discount-badge" style="font-size: 0.85rem; color: #16a34a; font-weight: 700; margin-top: 3px; display: inline-flex; align-items: center; gap: 6px;">
+                                    <i class="bi bi-check-circle-fill"></i> Tarifa particular individual (Activa 2+ servicios para 10%-30% dto.)
+                                </div>
+                            </div>
+                            <div style="text-align: right;">
+                                <div id="calc-original-row" style="display: none; font-size: 0.84rem; color: #94a3b8; text-decoration: line-through;">
+                                    Suma base: <span id="calc-original-price">0</span> €/mes
+                                </div>
+                                <div style="font-size: 1.65rem; font-weight: 800; color: #15803d; line-height: 1.1;">
+                                    <span id="calc-total-price">49</span> €<span style="font-size: 0.88rem; font-weight: 600; color: #64748b;">/mes + IVA</span>
+                                </div>
+                                <span style="font-size: 0.74rem; color: #64748b; display: block; margin-top: 2px;">Incluye Póliza RC 2.000.000 € y Cobertura de Impago</span>
+                            </div>
+                        </div>
+
+                        <!-- INPUT OCULTO CON EL DETALLE DE LA CONFIGURACIÓN -->
+                        <input type="hidden" name="suscripcion_particularizada" id="suscripcion_particularizada" value="PCI Estándar Comunidades (49€/mes)">
+                    </fieldset>
+
+
 <label class="full-width">
                         <span class="required-label">Servicio de interés</span>
                         <select name="servicio" id="servicio_select" required>
@@ -239,5 +351,185 @@
     <script src="../js/analytics.js?v=20261025a" defer></script>
     <script src="../js/security.js" defer></script>
     <script src="../js/presupuesto.js?v=20261025a" defer></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const pciCheck = document.getElementById('cfg-pci');
+    const cctvCheck = document.getElementById('cfg-cctv');
+    const accesosCheck = document.getElementById('cfg-accesos');
+    const ictCheck = document.getElementById('cfg-ict');
+    const redesCheck = document.getElementById('cfg-redes');
+
+    const pciPlan = document.getElementById('plan-pci');
+    const cctvPlan = document.getElementById('plan-cctv');
+    const accesosPlan = document.getElementById('plan-accesos');
+    const ictPlan = document.getElementById('plan-ict');
+    const redesPlan = document.getElementById('plan-redes');
+
+    const countEl = document.getElementById('calc-services-count');
+    const badgeEl = document.getElementById('calc-discount-badge');
+    const origRow = document.getElementById('calc-original-row');
+    const origEl = document.getElementById('calc-original-price');
+    const totalEl = document.getElementById('calc-total-price');
+    const hiddenDetail = document.getElementById('suscripcion_particularizada');
+
+    if (!pciCheck || !totalEl) return;
+
+    function recalculate() {
+        let items = [];
+        let baseTotal = 0;
+
+        if (pciCheck.checked) {
+            const val = parseFloat(pciPlan.value) || 0;
+            const text = pciPlan.options[pciPlan.selectedIndex].getAttribute('data-plan') || 'PCI';
+            items.push({ name: 'PCI', plan: text, price: val });
+            baseTotal += val;
+            pciPlan.disabled = false;
+        } else {
+            pciPlan.disabled = true;
+        }
+
+        if (cctvCheck.checked) {
+            const val = parseFloat(cctvPlan.value) || 0;
+            const text = cctvPlan.options[cctvPlan.selectedIndex].getAttribute('data-plan') || 'CCTV';
+            items.push({ name: 'CCTV', plan: text, price: val });
+            baseTotal += val;
+            cctvPlan.disabled = false;
+        } else {
+            cctvPlan.disabled = true;
+        }
+
+        if (accesosCheck.checked) {
+            const val = parseFloat(accesosPlan.value) || 0;
+            const text = accesosPlan.options[accesosPlan.selectedIndex].getAttribute('data-plan') || 'Accesos';
+            items.push({ name: 'Accesos', plan: text, price: val });
+            baseTotal += val;
+            accesosPlan.disabled = false;
+        } else {
+            accesosPlan.disabled = true;
+        }
+
+        if (ictCheck.checked) {
+            const val = parseFloat(ictPlan.value) || 0;
+            const text = ictPlan.options[ictPlan.selectedIndex].getAttribute('data-plan') || 'ICT';
+            items.push({ name: 'Telecom/ICT', plan: text, price: val });
+            baseTotal += val;
+            ictPlan.disabled = false;
+        } else {
+            ictPlan.disabled = true;
+        }
+
+        if (redesCheck.checked) {
+            const val = parseFloat(redesPlan.value) || 0;
+            const text = redesPlan.options[redesPlan.selectedIndex].getAttribute('data-plan') || 'Redes';
+            items.push({ name: 'Redes', plan: text, price: val });
+            baseTotal += val;
+            redesPlan.disabled = false;
+        } else {
+            redesPlan.disabled = true;
+        }
+
+        const count = items.length;
+        if (count === 0) {
+            countEl.textContent = '0 servicios seleccionados';
+            badgeEl.innerHTML = '<span style="color:#64748b;">Seleccione al menos un servicio técnico</span>';
+            origRow.style.display = 'none';
+            totalEl.textContent = '0';
+            hiddenDetail.value = 'Ningún servicio seleccionado';
+            return;
+        }
+
+        countEl.textContent = count === 1 ? '1 servicio activo' : (count + ' servicios combinados');
+
+        let discountRate = 0;
+        if (count === 1) {
+            discountRate = 0;
+            badgeEl.innerHTML = '<i class="bi bi-info-circle-fill" style="color:#0284c7;"></i> Tarifa individual (Activa 2+ servicios para 10%-30% dto.)';
+            origRow.style.display = 'none';
+        } else if (count === 2) {
+            discountRate = 0.10;
+            badgeEl.innerHTML = '<i class="bi bi-patch-check-fill" style="color:#16a34a;"></i> <strong>Pack Dúo: 10% Descuento Multitécnico Aplicado</strong>';
+            origRow.style.display = 'block';
+        } else if (count === 3) {
+            discountRate = 0.20;
+            badgeEl.innerHTML = '<i class="bi bi-patch-check-fill" style="color:#16a34a;"></i> <strong>Pack Trío: 20% Descuento Multitécnico Aplicado</strong>';
+            origRow.style.display = 'block';
+        } else {
+            discountRate = 0.30;
+            badgeEl.innerHTML = '<i class="bi bi-stars" style="color:#d97706;"></i> <strong>Abono Integral 360°: ¡30% Descuento Máximo Aplicado!</strong>';
+            origRow.style.display = 'block';
+        }
+
+        const discountedTotal = baseTotal * (1 - discountRate);
+        origEl.textContent = baseTotal.toFixed(0);
+        totalEl.textContent = discountedTotal.toFixed(0);
+
+        const summaryStr = items.map(i => i.plan).join(' + ') + 
+            (discountRate > 0 ? ' [Dto. ' + (discountRate * 100).toFixed(0) + '%: -' + (baseTotal * discountRate).toFixed(1) + '€/mes | Cuota Neta: ' + discountedTotal.toFixed(1) + '€/mes]' : ' [Cuota Neta: ' + discountedTotal.toFixed(0) + '€/mes]');
+        hiddenDetail.value = summaryStr;
+
+        const msgArea = document.querySelector('textarea[name="mensaje"]');
+        if (msgArea && (!msgArea.value || msgArea.value.startsWith('Suscripción configurada:'))) {
+            msgArea.value = 'Suscripción configurada: ' + summaryStr;
+        }
+    }
+
+    [pciCheck, cctvCheck, accesosCheck, ictCheck, redesCheck].forEach(chk => {
+        chk.addEventListener('change', recalculate);
+    });
+    [pciPlan, cctvPlan, accesosPlan, ictPlan, redesPlan].forEach(sel => {
+        sel.addEventListener('change', recalculate);
+    });
+
+    try {
+        const params = new URLSearchParams(window.location.search);
+        const serv = (params.get('servicio') || '').toLowerCase();
+        const plan = (params.get('plan') || '').toLowerCase();
+
+        if (serv) {
+            // Uncheck default PCI if arriving with a different single service
+            if (!serv.includes('pci') && !serv.includes('incendio') && !serv.includes('extintor') && !serv.includes('360') && !serv.includes('integral')) {
+                pciCheck.checked = false;
+            }
+        }
+        if (serv.includes('pci') || serv.includes('incendio') || serv.includes('extintor')) {
+            pciCheck.checked = true;
+            if (plan.includes('basico') || plan.includes('ripci')) pciPlan.value = '29';
+            else if (plan.includes('indust') || plan.includes('rsciei')) pciPlan.value = '89';
+            else pciPlan.value = '49';
+        }
+        if (serv.includes('cctv') || serv.includes('video')) {
+            cctvCheck.checked = true;
+            if (plan.includes('preventivo')) cctvPlan.value = '39';
+            else if (plan.includes('todo') || plan.includes('premium')) cctvPlan.value = '99';
+            else cctvPlan.value = '69';
+        }
+        if (serv.includes('acceso') || serv.includes('portero')) {
+            accesosCheck.checked = true;
+            if (plan.includes('basico') || plan.includes('portero')) accesosPlan.value = '25';
+            else accesosPlan.value = '45';
+        }
+        if (serv.includes('ict') || serv.includes('telecom') || serv.includes('antena')) {
+            ictCheck.checked = true;
+            if (plan.includes('tdt') || plan.includes('antena')) ictPlan.value = '25';
+            else ictPlan.value = '45';
+        }
+        if (serv.includes('red') || serv.includes('wifi') || serv.includes('voz')) {
+            redesCheck.checked = true;
+            if (plan.includes('pyme') || plan.includes('rack')) redesPlan.value = '49';
+            else redesPlan.value = '89';
+        }
+        if (serv.includes('360') || serv.includes('integral')) {
+            pciCheck.checked = true;
+            cctvCheck.checked = true;
+            accesosCheck.checked = true;
+            ictCheck.checked = true;
+        }
+    } catch(e) {}
+
+    recalculate();
+});
+</script>
+
 </body>
 </html>

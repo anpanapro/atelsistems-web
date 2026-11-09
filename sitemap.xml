@@ -9,7 +9,7 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- Servicios Específicos PCI -->
+  <!-- Servicios Específicos PCI y Sub-landings Especializadas -->
   <url>
     <loc>https://www.atelsistems.com/mantenimiento-contra-incendios/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.atelsistems.com/mantenimiento-contra-incendios/" />
@@ -44,7 +44,7 @@
     <priority>0.90</priority>
   </url>
 
-  <!-- Landings Locales PCI por Municipio -->
+  <!-- Landings Locales de Mantenimiento PCI por Municipio -->
   <url>
     <loc>https://www.atelsistems.com/mantenimiento-contra-incendios/malaga/</loc>
     <lastmod>2026-11-09</lastmod>
@@ -76,9 +76,15 @@
     <priority>0.85</priority>
   </url>
 
-  <!-- Páginas de Servicios Presentes en Versión Web -->
+  <!-- Landings Corporativas y de Verticales de Ingeniería 360 -->
   <url>
     <loc>https://www.atelsistems.com/comunidades-propietarios/</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://www.atelsistems.com/empresas-naves-industriales/</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
@@ -90,13 +96,63 @@
     <priority>0.90</priority>
   </url>
   <url>
+    <loc>https://www.atelsistems.com/telecomunicaciones-ict/</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://www.atelsistems.com/videovigilancia-cctv/</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://www.atelsistems.com/control-de-accesos/</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://www.atelsistems.com/redes-voz-y-datos/</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
     <loc>https://www.atelsistems.com/mantenimiento-tecnico-integral/</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
+
+  <!-- Hubs de SEO Local por Municipio (Costa del Sol) -->
+  <url>
+    <loc>https://www.atelsistems.com/malaga/</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.atelsistems.com/marbella/</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
   <url>
     <loc>https://www.atelsistems.com/fuengirola/</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.atelsistems.com/mijas/</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.atelsistems.com/estepona/</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
@@ -107,8 +163,14 @@
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
+  <url>
+    <loc>https://www.atelsistems.com/torremolinos/</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
 
-  <!-- Versión Internacional en Inglés -->
+  <!-- Versión Internacional en Inglés (Costa del Sol) -->
   <url>
     <loc>https://www.atelsistems.com/en/fire-protection-maintenance/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.atelsistems.com/en/fire-protection-maintenance/" />
@@ -119,7 +181,7 @@
     <priority>0.90</priority>
   </url>
 
-  <!-- Presupuesto y Recursos -->
+  <!-- Presupuesto, Configurador 360 y Recursos Formativos -->
   <url>
     <loc>https://www.atelsistems.com/presupuesto/</loc>
     <lastmod>2026-11-09</lastmod>

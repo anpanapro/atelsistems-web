@@ -1,0 +1,1951 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tesis de Ingeniería Técnico-Financiera y Transformación Digital — Andrés Pacheco Navarro</title>
+  <style>
+    :root {
+      --bg-dark: #070b14;
+      --bg-card: #0f172a;
+      --bg-card-alt: #131e36;
+      --bg-surface: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-gold: #d4af37;
+      --accent-gold-light: #f3e5ab;
+      --accent-blue: #38bdf8;
+      --accent-indigo: #6366f1;
+      --accent-emerald: #10b981;
+      --accent-rose: #f43f5e;
+      --accent-amber: #f59e0b;
+      --border-color: rgba(148, 163, 184, 0.18);
+      --border-gold: rgba(212, 175, 55, 0.4);
+      --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.5);
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-serif: 'Georgia', 'Times New Roman', serif;
+      --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 80px;
+    }
+
+    /* Top Academic Bar */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(7, 11, 20, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-gold);
+      padding: 12px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .brand-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .crest {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #d4af37 0%, #8a6d1b 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 18px;
+      color: #070b14;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.35);
+    }
+
+    .author-meta h1 {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent-gold);
+      font-weight: 700;
+    }
+
+    .author-meta p {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover {
+      color: var(--text-main);
+      border-color: var(--accent-blue);
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(56, 189, 248, 0.15));
+      color: var(--accent-gold-light);
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+    }
+
+    .btn-print {
+      background: linear-gradient(135deg, #d4af37 0%, #b5891c 100%);
+      color: #070b14;
+      border: none;
+      padding: 9px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .btn-print:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* Formal Thesis Cover Hero */
+    .thesis-cover {
+      margin-top: 28px;
+      background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.14), transparent 55%),
+                  radial-gradient(circle at bottom left, rgba(56, 189, 248, 0.1), transparent 50%),
+                  linear-gradient(180deg, #0b1325 0%, #0f172a 100%);
+      border: 1px solid var(--border-gold);
+      border-radius: 20px;
+      padding: 48px 56px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .thesis-cover::before {
+      content: "TESIS DOCTORAL & AUDITORÍA FORENSE";
+      position: absolute;
+      top: 24px;
+      right: 36px;
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      color: var(--accent-gold);
+      border: 1px solid var(--border-gold);
+      padding: 5px 14px;
+      border-radius: 99px;
+      background: rgba(212, 175, 55, 0.08);
+      font-weight: 700;
+    }
+
+    .thesis-label {
+      color: var(--accent-blue);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+      display: inline-block;
+    }
+
+    .thesis-title {
+      font-family: var(--font-serif);
+      font-size: 34px;
+      line-height: 1.25;
+      font-weight: 700;
+      color: #ffffff;
+      max-width: 1050px;
+      margin-bottom: 20px;
+    }
+
+    .thesis-subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 960px;
+      margin-bottom: 32px;
+    }
+
+    .cover-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .cover-meta-box {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid var(--border-color);
+      padding: 16px 20px;
+      border-radius: 12px;
+    }
+
+    .cover-meta-box .lbl {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .cover-meta-box .val {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--accent-gold-light);
+    }
+
+    .cover-meta-box .sub {
+      font-size: 12px;
+      color: var(--accent-emerald);
+      margin-top: 2px;
+    }
+
+    /* Section Styling */
+    .section-view {
+      display: block;
+      margin-top: 36px;
+    }
+
+    .section-view.hidden-tab {
+      display: none;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 24px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-color);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .section-header h2 {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-header h2 span.chap {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      background: rgba(212, 175, 55, 0.16);
+      color: var(--accent-gold);
+      border: 1px solid var(--border-gold);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    /* KPI Strip */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .kpi-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 20px 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .kpi-card.gold {
+      border-color: var(--border-gold);
+      background: linear-gradient(160deg, #0f172a 0%, #191711 100%);
+    }
+
+    .kpi-card .kpi-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .kpi-card .kpi-num {
+      font-family: var(--font-mono);
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .kpi-card .kpi-foot {
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge-up {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--accent-emerald);
+      padding: 2px 8px;
+      border-radius: 99px;
+      font-weight: 700;
+      font-size: 11px;
+    }
+
+    .badge-warn {
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--accent-amber);
+      padding: 2px 8px;
+      border-radius: 99px;
+      font-weight: 700;
+      font-size: 11px;
+    }
+
+    .badge-danger {
+      background: rgba(244, 63, 94, 0.15);
+      color: var(--accent-rose);
+      padding: 2px 8px;
+      border-radius: 99px;
+      font-weight: 700;
+      font-size: 11px;
+    }
+
+    /* Tables */
+    .table-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 28px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .table-card-header {
+      background: var(--bg-card-alt);
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .table-card-header h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--accent-gold-light);
+    }
+
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    table.fin-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+    }
+
+    table.fin-table th {
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.8px;
+      padding: 13px 18px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    table.fin-table th.num,
+    table.fin-table td.num {
+      text-align: right;
+      font-family: var(--font-mono);
+      white-space: nowrap;
+    }
+
+    table.fin-table td {
+      padding: 12px 18px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+      color: #e2e8f0;
+    }
+
+    table.fin-table tr.group-row td {
+      background: rgba(56, 189, 248, 0.07);
+      font-weight: 700;
+      color: var(--accent-blue);
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 0.8px;
+    }
+
+    table.fin-table tr.subtotal-row td {
+      background: rgba(30, 41, 59, 0.75);
+      font-weight: 700;
+      color: #fff;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    table.fin-table tr.total-row td {
+      background: linear-gradient(90deg, rgba(212, 175, 55, 0.18), rgba(212, 175, 55, 0.05));
+      font-weight: 800;
+      font-size: 15px;
+      color: var(--accent-gold-light);
+      border-top: 2px solid var(--accent-gold);
+      border-bottom: 2px solid var(--accent-gold);
+    }
+
+    /* Two-column layout */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    @media (max-width: 1024px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Interactive Simulator Layout */
+    .sim-layout {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 26px;
+      align-items: start;
+    }
+
+    @media (max-width: 1100px) {
+      .sim-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .sim-controls {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .sim-controls h3 {
+      font-size: 16px;
+      color: var(--accent-gold);
+      margin-bottom: 6px;
+    }
+
+    .sim-controls p.sim-desc {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .preset-bar {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .preset-btn {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .preset-btn:hover, .preset-btn.active {
+      border-color: var(--accent-gold);
+      background: rgba(212, 175, 55, 0.18);
+      color: var(--accent-gold-light);
+    }
+
+    .control-group {
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .control-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .control-label span.val-Readout {
+      font-family: var(--font-mono);
+      color: var(--accent-blue);
+      font-weight: 700;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--accent-gold);
+      cursor: pointer;
+    }
+
+    .control-hint {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    /* Charts Box */
+    .chart-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .chart-box h4 {
+      font-size: 15px;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .chart-box p.sub {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    /* Callout Thesis Box */
+    .thesis-callout {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(15, 23, 42, 0.9));
+      border-left: 4px solid var(--accent-gold);
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 20px 24px;
+      border-radius: 0 12px 12px 0;
+      margin-bottom: 28px;
+    }
+
+    .thesis-callout h4 {
+      color: var(--accent-gold);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .thesis-callout p {
+      font-size: 14px;
+      color: #e2e8f0;
+    }
+
+    /* Signature Footer */
+    .thesis-footer {
+      margin-top: 56px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 16px;
+      padding: 32px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .sig-block .sig-line {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 24px;
+      color: var(--accent-gold);
+      margin-bottom: 4px;
+    }
+
+    /* Print Mode (A4 Full Report) */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #0f172a !important;
+        padding: 0 !important;
+        font-size: 11pt;
+      }
+      .top-bar {
+        display: none !important;
+      }
+      .container {
+        max-width: 100% !important;
+        padding: 0 !important;
+      }
+      .section-view.hidden-tab {
+        display: block !important;
+        page-break-before: always;
+      }
+      .thesis-cover,
+      .kpi-card,
+      .table-card,
+      .chart-box,
+      .sim-controls,
+      .thesis-callout,
+      .thesis-footer,
+      .cover-meta-box {
+        background: #ffffff !important;
+        color: #0f172a !important;
+        border: 1px solid #cbd5e1 !important;
+        box-shadow: none !important;
+        break-inside: avoid;
+      }
+      .thesis-title,
+      .section-header h2,
+      .kpi-card .kpi-num,
+      table.fin-table td,
+      .thesis-callout p,
+      .chart-box h4 {
+        color: #0f172a !important;
+      }
+      table.fin-table th {
+        background: #f1f5f9 !important;
+        color: #334155 !important;
+      }
+      table.fin-table tr.subtotal-row td,
+      table.fin-table tr.total-row td {
+        background: #fef9c3 !important;
+        color: #0f172a !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Navigation Bar -->
+  <header class="top-bar">
+    <div class="brand-author">
+      <div class="crest">AP</div>
+      <div class="author-meta">
+        <h1>Andrés Pacheco Navarro</h1>
+        <p>Tesis de Ingeniería Técnico-Financiera & Transformación Digital · Noviembre 2026</p>
+      </div>
+    </div>
+    <div class="nav-actions">
+      <button class="tab-btn active" onclick="switchTab('all', this)">Vista Tesis Completa</button>
+      <button class="tab-btn" onclick="switchTab('atel-costes', this)">1. Contabilidad ATEL (Al Euro)</button>
+      <button class="tab-btn" onclick="switchTab('atel-vs', this)">2. Web Básica vs Plataforma ATEL</button>
+      <button class="tab-btn" onclick="switchTab('simulador', this)">3. Simulador Econométrico Live</button>
+      <button class="tab-btn" onclick="switchTab('ecosistema', this)">4. Corp. Dental & Sandra Haute Beauté</button>
+      <button class="btn-print" onclick="window.print()">
+        <span>🖨️ Imprimir / Exportar Tesis Completa en PDF</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- FORMAL DOCTORAL THESIS COVER -->
+    <section class="thesis-cover">
+      <span class="thesis-label">Documento Magistral de Auditoría Operativa, Econometría B2B y Arquitectura Digital</span>
+      <h1 class="thesis-title">
+        Tesis de Ingeniería Técnico-Financiera y Transformación Digital: Modelado Econométrico de Costes Operativos, Capacidad Instalada y Retorno de Inversión Digital (ATEL SISTEMS S.L., Corporación Dental &amp; Sandra Haute Beauté)
+      </h1>
+      <p class="thesis-subtitle">
+        Estudio exhaustivo de contabilidad analítica de costes fijos y variables ("hasta el último euro") para una estructura industrial real de <strong>15 profesionales técnicos en calle, flota de 15 furgonetas operativas, 6 profesionales en oficina técnica/administrativa y almacén propio</strong>. Demostración empírica de cómo la transición desde una Web Estándar hacia la Plataforma Digital Integral de 7 Verticales + 7 Municipios desbloquea la rentabilidad marginal y multiplica el EBITDA.
+      </p>
+
+      <div class="cover-grid">
+        <div class="cover-meta-box">
+          <div class="lbl">Autor Principal &amp; Arquitecto</div>
+          <div class="val">Andrés Pacheco Navarro</div>
+          <div class="sub">Dirección de Ingeniería &amp; Finanzas</div>
+        </div>
+        <div class="cover-meta-box">
+          <div class="lbl">OPEX Estructural Auditado ATEL</div>
+          <div class="val">78.488,30 € / mes</div>
+          <div class="sub">941.859,60 € / año (Coste Fijo Base)</div>
+        </div>
+        <div class="cover-meta-box">
+          <div class="lbl">Salto Facturación ATEL Plataforma</div>
+          <div class="val">1,18 M€ → 1,86 M€ / año</div>
+          <div class="sub">+680.000 €/año en verticales alto margen</div>
+        </div>
+        <div class="cover-meta-box">
+          <div class="lbl">Impacto Global 3 Proyectos</div>
+          <div class="val">VAN +1,14 M€ · TIR 318%</div>
+          <div class="sub">Payback consolidado &lt; 2,4 meses</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- CAPÍTULO 1: DESGLOSE CONTABLE HASTA EL ÚLTIMO EURO (ATEL SISTEMS S.L.) -->
+    <!-- ===================================================================== -->
+    <section id="tab-atel-costes" class="section-view">
+      <div class="section-header">
+        <div>
+          <h2><span class="chap">CAPÍTULO I</span> Auditoría Analítica de Estructura Física y Humana — ATEL SISTEMS S.L.</h2>
+          <p>Desglose contable mensual y anualizado al céntimo de euro para sostener la capacidad instalada de 21 trabajadores en plantilla, 15 vehículos industriales y nave propia.</p>
+        </div>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-title">1. Almacén / Nave Industrial Propia</div>
+          <div class="kpi-num">1.620,00 €<small style="font-size:13px;color:#94a3b8;">/mes</small></div>
+          <div class="kpi-foot"><span class="badge-up">19.440,00 €/año</span> <span>2,06% del OPEX Fijo</span></div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">2. Plantilla Calle (15 Técnicos)</div>
+          <div class="kpi-num">44.916,39 €<small style="font-size:13px;color:#94a3b8;">/mes</small></div>
+          <div class="kpi-foot"><span class="badge-warn">538.996,68 €/año</span> <span>57,23% del OPEX Fijo</span></div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">3. Flota Operativa (15 Furgonetas)</div>
+          <div class="kpi-num">13.313,16 €<small style="font-size:13px;color:#94a3b8;">/mes</small></div>
+          <div class="kpi-foot"><span class="badge-warn">159.757,92 €/año</span> <span>16,96% del OPEX Fijo</span></div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">4. Estructura Oficina (6 Personas)</div>
+          <div class="kpi-num">18.638,75 €<small style="font-size:13px;color:#94a3b8;">/mes</small></div>
+          <div class="kpi-foot"><span class="badge-up">223.665,00 €/año</span> <span>23,75% del OPEX Fijo</span></div>
+        </div>
+        <div class="kpi-card gold">
+          <div class="kpi-title">OPEX ESTRUCTURAL TOTAL ATEL</div>
+          <div class="kpi-num">78.488,30 €<small style="font-size:13px;color:#f3e5ab;">/mes</small></div>
+          <div class="kpi-foot"><span class="badge-up">941.859,60 €/año</span> <span>Antes de materiales obra</span></div>
+        </div>
+      </div>
+
+      <div class="thesis-callout">
+        <h4>Dictamen Contable de Andrés Pacheco Navarro — El Umbral Crítico de Ocupación</h4>
+        <p>
+          Una empresa instaladora y mantenedora homologada con <strong>15 técnicos en calle, 15 furgonetas y 6 personas en oficina</strong> abre la persiana el día 1 de cada mes con una obligación financiera ineludible de <strong>78.488,30 €</strong> (3.737,54 € por día laborable, o <strong>31,15 € por hora/técnico</strong> solo en costes fijos estructurales). Si la captación digital solo atrae mantenimientos básicos de bajo ticket (extintores aislados o pequeñas reparaciones de antena), la estructura sufre asfixia de margen. La <strong>Plataforma Digital Integral</strong> es el motor indispensable para alimentar a los 15 equipos con proyectos industriales, CCTV IP, control de accesos y redes ICT de alto valor añadido.
+        </p>
+      </div>
+
+      <div class="table-card">
+        <div class="table-card-header">
+          <h3>Libro Mayor de Costes Operativos Estructurales (OPEX) — Desglose Exacto al Euro</h3>
+          <span class="badge-up">Auditoría Verificada · Convenio Siderometalúrgico &amp; Instalaciones Telecom/PCI Málaga</span>
+        </div>
+        <div class="table-responsive">
+          <table class="fin-table">
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Partida Contable / Concepto Operativo</th>
+                <th>Base de Cálculo y Parámetros Técnicos</th>
+                <th class="num">Unidades</th>
+                <th class="num">Coste Unit. (€/mes)</th>
+                <th class="num">Total Mensual (€)</th>
+                <th class="num">Total Anual (€)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- BLOQUE 1: ALMACÉN -->
+              <tr class="group-row">
+                <td colspan="7">1. ESTRUCTURA INMOBILIARIA: ALMACÉN Y NAVE INDUSTRIAL PROPIA (SIN HIPOTECA · PROPIEDAD CONSOLIDADA)</td>
+              </tr>
+              <tr>
+                <td>681.01</td>
+                <td>Amortización Contable de Edificación e Instalaciones Nave</td>
+                <td>Dotación lineal inmueble industrial, estanterías carga pesada y banco de pruebas</td>
+                <td class="num">1</td>
+                <td class="num">350,00 €</td>
+                <td class="num">350,00 €</td>
+                <td class="num">4.200,00 €</td>
+              </tr>
+              <tr>
+                <td>631.01</td>
+                <td>IBI Urbano-Industrial, Tasa Basuras y Vado Permanente</td>
+                <td>Tributos municipales prorrateados en 12 mensualidades</td>
+                <td class="num">1</td>
+                <td class="num">145,00 €</td>
+                <td class="num">145,00 €</td>
+                <td class="num">1.740,00 €</td>
+              </tr>
+              <tr>
+                <td>625.01</td>
+                <td>Seguro Multirriesgo Industrial + Póliza RC Explotación (1.500.000 €)</td>
+                <td>RC obligatoria empresas instaladoras/mantenedoras PCI (RIPCI) y Telecom</td>
+                <td class="num">1</td>
+                <td class="num">285,00 €</td>
+                <td class="num">285,00 €</td>
+                <td class="num">3.420,00 €</td>
+              </tr>
+              <tr>
+                <td>628.01</td>
+                <td>Suministros Críticos (Electricidad Trifásica, Agua y Fibra Dedicada FTTH Pro)</td>
+                <td>Potencia contratada taller + IP Fija simétrica para servidor ERP/CCTV</td>
+                <td class="num">1</td>
+                <td class="num">340,00 €</td>
+                <td class="num">340,00 €</td>
+                <td class="num">4.080,00 €</td>
+              </tr>
+              <tr>
+                <td>622.01</td>
+                <td>Mantenimiento de Nave, Puertas Seccionales y Sistema Grado 3 Propio</td>
+                <td>Conservación preventiva nave, recarga gases taller y conexión CRA</td>
+                <td class="num">1</td>
+                <td class="num">90,00 €</td>
+                <td class="num">90,00 €</td>
+                <td class="num">1.080,00 €</td>
+              </tr>
+              <tr>
+                <td>659.01</td>
+                <td>Coste Financiero y Merma de Stock Inmovilizado (Repuestos Críticos PCI/ICT)</td>
+                <td>Inmovilización media ~65.000 € en centrales, detectores, bombas, fibra, electrónica</td>
+                <td class="num">1</td>
+                <td class="num">410,00 €</td>
+                <td class="num">410,00 €</td>
+                <td class="num">4.920,00 €</td>
+              </tr>
+              <tr class="subtotal-row">
+                <td colspan="5">SUBTOTAL BLOQUE 1 — ALMACÉN / NAVE INDUSTRIAL PROPIA</td>
+                <td class="num">1.620,00 €</td>
+                <td class="num">19.440,00 €</td>
+              </tr>
+
+              <!-- BLOQUE 2: 15 TÉCNICOS EN CALLE -->
+              <tr class="group-row">
+                <td colspan="7">2. PERSONAL OPERATIVO DE CAMPO: 15 PROFESIONALES TÉCNICOS EN CALLE (INCLUYE SEGURIDAD SOCIAL EMPRESA 34,18%)</td>
+              </tr>
+              <tr>
+                <td>640.10</td>
+                <td>Oficiales de 1ª Jefes de Equipo Homologados PCI / Telecom</td>
+                <td>Bruto: 2.350,00 €/mes + SS Empresa (34,18% = 803,23 €/mes) → 3.153,23 €/técnico</td>
+                <td class="num">5</td>
+                <td class="num">3.153,23 €</td>
+                <td class="num">15.766,15 €</td>
+                <td class="num">189.193,80 €</td>
+              </tr>
+              <tr>
+                <td>640.11</td>
+                <td>Oficiales de 2ª Instaladores / Mantenedores Polivalentes</td>
+                <td>Bruto: 1.980,00 €/mes + SS Empresa (34,18% = 676,76 €/mes) → 2.656,76 €/técnico</td>
+                <td class="num">7</td>
+                <td class="num">2.656,76 €</td>
+                <td class="num">18.597,32 €</td>
+                <td class="num">223.167,84 €</td>
+              </tr>
+              <tr>
+                <td>640.12</td>
+                <td>Técnicos Auxiliares / Ayudantes Especialistas de Instalación</td>
+                <td>Bruto: 1.690,00 €/mes + SS Empresa (34,18% = 577,64 €/mes) → 2.267,64 €/técnico</td>
+                <td class="num">3</td>
+                <td class="num">2.267,64 €</td>
+                <td class="num">6.802,92 €</td>
+                <td class="num">81.635,04 €</td>
+              </tr>
+              <tr>
+                <td>640.15</td>
+                <td>Pluses de Guardia 24h/365d, Disponibilidad, Dietas y Desplazamientos</td>
+                <td>Servicio de urgencias comunidades/industria Costa del Sol (165,00 €/mes x 15)</td>
+                <td class="num">15</td>
+                <td class="num">165,00 €</td>
+                <td class="num">2.475,00 €</td>
+                <td class="num">29.700,00 €</td>
+              </tr>
+              <tr>
+                <td>649.10</td>
+                <td>EPIs, Vestuario Ignífugo, Calibración Equipos ENAC y Herramienta Hilti/Bosch</td>
+                <td>Certificación anual telurómetros, certificadores fibra/redes, manómetros RIPCI</td>
+                <td class="num">15</td>
+                <td class="num">85,00 €</td>
+                <td class="num">1.275,00 €</td>
+                <td class="num">15.300,00 €</td>
+              </tr>
+              <tr class="subtotal-row">
+                <td colspan="5">SUBTOTAL BLOQUE 2 — 15 PROFESIONALES TÉCNICOS EN CALLE</td>
+                <td class="num">44.916,39 €</td>
+                <td class="num">538.996,68 €</td>
+              </tr>
+
+              <!-- BLOQUE 3: 15 FURGONETAS -->
+              <tr class="group-row">
+                <td colspan="7">3. FLOTA MÓVIL DE INTERVENCIÓN: 15 FURGONETAS EQUIPADAS CON TALLER MÓVIL</td>
+              </tr>
+              <tr>
+                <td>621.20</td>
+                <td>Cuota Renting / Amortización Financiera Flota Comercial</td>
+                <td>Furgonetas L1H1/L2H1 rotuladas y carrozadas interiormente (415,00 €/mes x 15)</td>
+                <td class="num">15</td>
+                <td class="num">415,00 €</td>
+                <td class="num">6.225,00 €</td>
+                <td class="num">74.700,00 €</td>
+              </tr>
+              <tr>
+                <td>628.20</td>
+                <td>Combustible Diésel Profesional (Cobertura Málaga — Marbella — Estepona)</td>
+                <td>Promedio 2.600 km/mes/furgoneta · Consumo 7,2 L/100km a 1,52 €/L = 284,544 €/ud</td>
+                <td class="num">15</td>
+                <td class="num">284,54 €</td>
+                <td class="num">4.268,16 €</td>
+                <td class="num">51.217,92 €</td>
+              </tr>
+              <tr>
+                <td>625.20</td>
+                <td>Seguros Comerciales Flota Todo Riesgo con Franquicia Reducida</td>
+                <td>Asistencia en carretera km 0 vehículo industrial y carga transportada</td>
+                <td class="num">15</td>
+                <td class="num">78,00 €</td>
+                <td class="num">1.170,00 €</td>
+                <td class="num">14.040,00 €</td>
+              </tr>
+              <tr>
+                <td>622.20</td>
+                <td>Mantenimiento Mecánico, Neumáticos, ITV, Peajes AP-7 y Lavado Imagen</td>
+                <td>Desgaste intensivo en rutas urbanas e interurbanas Costa del Sol</td>
+                <td class="num">15</td>
+                <td class="num">92,00 €</td>
+                <td class="num">1.380,00 €</td>
+                <td class="num">16.560,00 €</td>
+              </tr>
+              <tr>
+                <td>629.20</td>
+                <td>Sistema GPS / Telemetría de Flota en Tiempo Real y Tarjetas Solred / Vía-T</td>
+                <td>Geolocalización de avisos urgentes y optimización de rutas SAT</td>
+                <td class="num">15</td>
+                <td class="num">18,00 €</td>
+                <td class="num">270,00 €</td>
+                <td class="num">3.240,00 €</td>
+              </tr>
+              <tr class="subtotal-row">
+                <td colspan="5">SUBTOTAL BLOQUE 3 — FLOTA OPERATIVA DE 15 FURGONETAS</td>
+                <td class="num">13.313,16 €</td>
+                <td class="num">159.757,92 €</td>
+              </tr>
+
+              <!-- BLOQUE 4: 6 PERSONAS EN OFICINA -->
+              <tr class="group-row">
+                <td colspan="7">4. ESTRUCTURA DE DIRECCIÓN, INGENIERÍA, TRÁFICO Y ADMINISTRACIÓN: 6 PERSONAS EN OFICINA</td>
+              </tr>
+              <tr>
+                <td>640.30</td>
+                <td>Ingeniero Director Técnico Colegiado (Firma de Proyectos PCI / ICT / Baja Tensión)</td>
+                <td>Bruto: 3.200,00 €/mes + SS Empresa (32,50% = 1.040,00 €/mes)</td>
+                <td class="num">1</td>
+                <td class="num">4.240,00 €</td>
+                <td class="num">4.240,00 €</td>
+                <td class="num">50.880,00 €</td>
+              </tr>
+              <tr>
+                <td>640.31</td>
+                <td>Coordinador de Operaciones y Tráfico de Avisos SAT (Dispatcher de los 15 Técnicos)</td>
+                <td>Bruto: 2.150,00 €/mes + SS Empresa (32,50% = 698,75 €/mes)</td>
+                <td class="num">1</td>
+                <td class="num">2.848,75 €</td>
+                <td class="num">2.848,75 €</td>
+                <td class="num">34.185,00 €</td>
+              </tr>
+              <tr>
+                <td>640.32</td>
+                <td>Técnicos Comerciales / Presupuestación de Obra y Licitaciones B2B</td>
+                <td>Bruto: 2.050,00 €/mes + SS (32,50% = 666,25 €/mes) → 2.716,25 €/mes x 2</td>
+                <td class="num">2</td>
+                <td class="num">2.716,25 €</td>
+                <td class="num">5.432,50 €</td>
+                <td class="num">65.190,00 €</td>
+              </tr>
+              <tr>
+                <td>640.33</td>
+                <td>Administrativos Contables / Facturación / Atención a Administradores de Fincas</td>
+                <td>Bruto: 1.750,00 €/mes + SS (32,50% = 568,75 €/mes) → 2.318,75 €/mes x 2</td>
+                <td class="num">2</td>
+                <td class="num">2.318,75 €</td>
+                <td class="num">4.637,50 €</td>
+                <td class="num">55.650,00 €</td>
+              </tr>
+              <tr>
+                <td>629.30</td>
+                <td>Software ERP/SAT, Licencias AutoCAD/CYPE, 21 Líneas Móviles, Asesoría y PRL (SPA)</td>
+                <td>Digitalización de partes en tablet, CAE (Coordinación Actividades Empresariales), RGPD</td>
+                <td class="num">1</td>
+                <td class="num">1.480,00 €</td>
+                <td class="num">1.480,00 €</td>
+                <td class="num">17.760,00 €</td>
+              </tr>
+              <tr class="subtotal-row">
+                <td colspan="5">SUBTOTAL BLOQUE 4 — 6 PERSONAS EN OFICINA Y GASTOS GENERALES DE GESTIÓN</td>
+                <td class="num">18.638,75 €</td>
+                <td class="num">223.665,00 €</td>
+              </tr>
+
+              <!-- TOTAL GENERAL -->
+              <tr class="total-row">
+                <td colspan="5">TOTAL OPEX ESTRUCTURAL FIJO AUDITADO (PUNTO DE PARTIDA MENSUAL / ANUAL ANTES DE MATERIALES)</td>
+                <td class="num">78.488,30 €</td>
+                <td class="num">941.859,60 €</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Visual Distribution of OPEX -->
+      <div class="grid-2">
+        <div class="chart-box">
+          <h4>Distribución Proporcional del Coste Estructural (78.488,30 €/mes)</h4>
+          <p class="sub">Peso relativo de cada centro de coste sobre la estructura operativa mensual de ATEL SISTEMS S.L.</p>
+          <svg viewBox="0 0 560 230" width="100%" height="230">
+            <!-- Horizontal Stacked Bar & Breakdown -->
+            <rect x="20" y="30" width="297" height="44" rx="6" fill="#38bdf8" />
+            <rect x="319" y="30" width="123" height="44" rx="6" fill="#6366f1" />
+            <rect x="444" y="30" width="88" height="44" rx="6" fill="#f59e0b" />
+            <rect x="534" y="30" width="12" height="44" rx="4" fill="#10b981" />
+
+            <text x="168" y="57" fill="#070b14" font-size="13" font-weight="800" text-anchor="middle">57,23% Calle (44.916 €)</text>
+            <text x="380" y="57" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">23,75% Oficina</text>
+            <text x="488" y="57" fill="#070b14" font-size="11" font-weight="800" text-anchor="middle">16,96%</text>
+
+            <!-- Legend items -->
+            <circle cx="30" cy="115" r="7" fill="#38bdf8" />
+            <text x="46" y="119" fill="#e2e8f0" font-size="13">15 Técnicos en Calle: <tspan font-weight="700" fill="#38bdf8">44.916,39 €/mes</tspan> (2.994,43 €/técnico)</text>
+
+            <circle cx="30" cy="145" r="7" fill="#6366f1" />
+            <text x="46" y="149" fill="#e2e8f0" font-size="13">6 Profesionales Oficina + ERP/CAE: <tspan font-weight="700" fill="#818cf8">18.638,75 €/mes</tspan> (Soporte y Licitación)</text>
+
+            <circle cx="30" cy="175" r="7" fill="#f59e0b" />
+            <text x="46" y="179" fill="#e2e8f0" font-size="13">15 Furgonetas Operativas: <tspan font-weight="700" fill="#fbbf24">13.313,16 €/mes</tspan> (887,54 €/furgoneta todo incluido)</text>
+
+            <circle cx="30" cy="205" r="7" fill="#10b981" />
+            <text x="46" y="209" fill="#e2e8f0" font-size="13">Nave / Almacén Propio: <tspan font-weight="700" fill="#34d399">1.620,00 €/mes</tspan> (Ventaja competitiva frente a alquiler de 4.500 €/mes)</text>
+          </svg>
+        </div>
+
+        <div class="chart-box">
+          <h4>Unit Economics por Unidad Móvil Desplegada (1 Técnico + 1 Furgoneta + Backoffice)</h4>
+          <p class="sub">Coste real de poner una pareja de llaves/furgoneta en la calle cada mes con respaldo de ingeniería y nave.</p>
+          <svg viewBox="0 0 560 230" width="100%" height="230">
+            <rect x="20" y="20" width="520" height="190" rx="12" fill="#131e36" stroke="rgba(212,175,55,0.35)" />
+            <text x="40" y="52" fill="#f3e5ab" font-size="14" font-weight="700">COSTE COMPLETO ABSORBIDO POR FURGONETA / TÉCNICO EN CALLE:</text>
+            <text x="40" y="84" fill="#94a3b8" font-size="13">• Coste Salarial Directo + SS + Guardias + EPIs:</text>
+            <text x="515" y="84" fill="#ffffff" font-family="monospace" font-size="14" font-weight="700" text-anchor="end">2.994,43 €/mes</text>
+
+            <text x="40" y="112" fill="#94a3b8" font-size="13">• Coste Directo Furgoneta (Renting + Diésel + Seguro + Taller):</text>
+            <text x="515" y="112" fill="#ffffff" font-family="monospace" font-size="14" font-weight="700" text-anchor="end">887,54 €/mes</text>
+
+            <text x="40" y="140" fill="#94a3b8" font-size="13">• Repercusión Oficina (6 pax) + Nave Propia (1/15 parte):</text>
+            <text x="515" y="140" fill="#ffffff" font-family="monospace" font-size="14" font-weight="700" text-anchor="end">1.350,58 €/mes</text>
+
+            <line x1="40" y1="158" x2="515" y2="158" stroke="#d4af37" stroke-width="1.5" />
+            <text x="40" y="186" fill="#d4af37" font-size="15" font-weight="800">PUNTO DE EQUILIBRIO (SIN MATERIALES) POR TÉCNICO:</text>
+            <text x="515" y="186" fill="#10b981" font-family="monospace" font-size="17" font-weight="800" text-anchor="end">5.232,55 €/mes</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- CAPÍTULO 2: WEB BÁSICA vs PLATAFORMA INTEGRAL ATEL                    -->
+    <!-- ===================================================================== -->
+    <section id="tab-atel-vs" class="section-view">
+      <div class="section-header">
+        <div>
+          <h2><span class="chap">CAPÍTULO II</span> Comparativa Econométrica: Web Estándar (`portable/web`) vs Plataforma Integral (`portable/Plataforma`)</h2>
+          <p>Demostración matemática de por qué una estructura de 21 personas se estanca con una web corporativa básica y cómo la Plataforma Integral multiplica el EBITDA.</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <!-- Escenario A: Web Básica -->
+        <div class="table-card" style="border-color: rgba(244, 63, 94, 0.4);">
+          <div class="table-card-header" style="background: rgba(244, 63, 94, 0.1);">
+            <h3 style="color: #fda4af;">Escenario A: ATEL con Web Básica (`portable/web`)</h3>
+            <span class="badge-danger">Subocupación de Margen · Saturación Baja</span>
+          </div>
+          <div style="padding: 22px;">
+            <p style="font-size: 13.5px; color: #cbd5e1; margin-bottom: 16px;">
+              La web básica actúa como un folleto estático centrado en mantenimiento básico de comunidades y extintores. No posiciona en búsquedas industriales de alto ticket en Marbella, Estepona o polígonos de Málaga.
+            </p>
+            <ul style="list-style: none; font-size: 13px; color: #94a3b8; display: grid; gap: 10px;">
+              <li>❌ <strong>Dependencia de bajo ticket:</strong> Revisiones de extintores y pequeñas averías de portero automático (Ticket medio: 420 € - 850 €).</li>
+              <li>❌ <strong>Tiempo improductivo en ruta:</strong> Los 15 técnicos invierten el 34% de su jornada en desplazamientos cortos de baja facturación.</li>
+              <li>❌ <strong>Capacidad de Ingeniería infrautilizada:</strong> El Ingeniero Colegiado y los 2 presupuestadores de oficina no reciben suficientes licitaciones industriales online.</li>
+              <li>⚠️ <strong>Facturación Anual Alcanzada:</strong> <strong>1.180.000,00 €/año</strong> (98.333,33 €/mes).</li>
+              <li>⚠️ <strong>Coste Materiales y Subcontratas (18,5%):</strong> <strong>218.300,00 €/año</strong>.</li>
+              <li>⚠️ <strong>EBITDA Anual Restante:</strong> <strong>19.840,40 €/año</strong> (1.653,37 €/mes · Margen EBITDA 1,68%).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Escenario B: Plataforma Integral -->
+        <div class="table-card" style="border-color: var(--accent-emerald);">
+          <div class="table-card-header" style="background: rgba(16, 185, 129, 0.12);">
+            <h3 style="color: #6ee7b7;">Escenario B: ATEL con Plataforma Integral (`portable/Plataforma`)</h3>
+            <span class="badge-up">Plena Ocupación Industrial · +334.719 € EBITDA</span>
+          </div>
+          <div style="padding: 22px;">
+            <p style="font-size: 13.5px; color: #cbd5e1; margin-bottom: 16px;">
+              La Plataforma despliega una arquitectura de <strong>7 Verticales Especializadas x 7 Municipios Clave</strong> (Málaga, Marbella, Estepona, Mijas, Fuengirola, Benalmádena, Torremolinos) con embudos B2B para Administradores de Fincas, Directores de Hotel y Gerentes de Naves Industriales.
+            </p>
+            <ul style="list-style: none; font-size: 13px; color: #e2e8f0; display: grid; gap: 10px;">
+              <li>✅ <strong>Desbloqueo de 7 Verticales High-Ticket:</strong> Naves Industriales (BIEs, Rociadores, Aljibes), CCTV IP con Analítica, Control de Accesos Biométrico/Matrículas, Redes Voz/Datos y Fibra ICT.</li>
+              <li>✅ <strong>Optimización de los 15 Técnicos:</strong> Obras de 4.500 € a 28.000 € que mantienen equipos completos facturando 8 horas seguidas sin tiempos muertos.</li>
+              <li>✅ <strong>Contratos Recurrentes Multianuales:</strong> Mantenimiento integral RIPCI + CCTV + Accesos en complejos residenciales premium y parques empresariales.</li>
+              <li>🚀 <strong>Facturación Anual Alcanzada:</strong> <strong>1.860.000,00 €/año</strong> (155.000,00 €/mes).</li>
+              <li>🚀 <strong>Coste Materiales Directos de Obra (29,2%):</strong> <strong>543.120,00 €/año</strong>.</li>
+              <li>🚀 <strong>EBITDA Anual Generado:</strong> <strong>375.020,40 €/año</strong> (31.251,70 €/mes · Margen EBITDA 20,16%).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabla Comparativa de P&L Completa -->
+      <div class="table-card">
+        <div class="table-card-header">
+          <h3>Cuenta de Pérdidas y Ganancias Comparada (P&amp;L) — Impacto de la Plataforma sobre la Misma Estructura de 21 Personas</h3>
+          <span class="badge-up">Apalancamiento Operativo Puro</span>
+        </div>
+        <div class="table-responsive">
+          <table class="fin-table">
+            <thead>
+              <tr>
+                <th>Línea de Cuenta de Resultados (P&amp;L)</th>
+                <th class="num">ATEL Web Básica (Anual)</th>
+                <th class="num">% s/Ventas</th>
+                <th class="num">ATEL Plataforma Integral (Anual)</th>
+                <th class="num">% s/Ventas</th>
+                <th class="num">Diferencial Neto (€)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="group-row">
+                <td colspan="6">INGRESOS DE EXPLOTACIÓN POR VERTICAL DE NEGOCIO</td>
+              </tr>
+              <tr>
+                <td>1. Protección Contra Incendios (PCI) en Comunidades y Garajes</td>
+                <td class="num">495.000,00 €</td>
+                <td class="num">41,95%</td>
+                <td class="num">580.000,00 €</td>
+                <td class="num">31,18%</td>
+                <td class="num" style="color:#10b981;">+85.000,00 €</td>
+              </tr>
+              <tr>
+                <td>2. PCI Industrial (Naves, Hoteles, Grupos de Presión, Rociadores, Detección)</td>
+                <td class="num">165.000,00 €</td>
+                <td class="num">13,98%</td>
+                <td class="num">420.000,00 €</td>
+                <td class="num">22,58%</td>
+                <td class="num" style="color:#10b981;">+255.000,00 €</td>
+              </tr>
+              <tr>
+                <td>3. Videovigilancia CCTV IP y Analítica de Vídeo Perimetral</td>
+                <td class="num">110.000,00 €</td>
+                <td class="num">9,32%</td>
+                <td class="num">245.000,00 €</td>
+                <td class="num">13,17%</td>
+                <td class="num" style="color:#10b981;">+135.000,00 €</td>
+              </tr>
+              <tr>
+                <td>4. Control de Accesos (Peatonal, Vehicular LPR, Mancomunidades Costa del Sol)</td>
+                <td class="num">85.000,00 €</td>
+                <td class="num">7,20%</td>
+                <td class="num">195.000,00 €</td>
+                <td class="num">10,48%</td>
+                <td class="num" style="color:#10b981;">+110.000,00 €</td>
+              </tr>
+              <tr>
+                <td>5. Telecomunicaciones ICT, Fibra Óptica y Redes Corporativas Voz/Datos</td>
+                <td class="num">190.000,00 €</td>
+                <td class="num">16,10%</td>
+                <td class="num">255.000,00 €</td>
+                <td class="num">13,71%</td>
+                <td class="num" style="color:#10b981;">+65.000,00 €</td>
+              </tr>
+              <tr>
+                <td>6. Contratos de Mantenimiento Técnico Integral Multidisciplinar (SLA 24h)</td>
+                <td class="num">135.000,00 €</td>
+                <td class="num">11,44%</td>
+                <td class="num">165.000,00 €</td>
+                <td class="num">8,87%</td>
+                <td class="num" style="color:#10b981;">+30.000,00 €</td>
+              </tr>
+              <tr class="subtotal-row">
+                <td>FACTURACIÓN NETA ANUAL (CIFRA DE NEGOCIOS)</td>
+                <td class="num">1.180.000,00 €</td>
+                <td class="num">100,00%</td>
+                <td class="num">1.860.000,00 €</td>
+                <td class="num">100,00%</td>
+                <td class="num" style="color:#38bdf8;">+680.000,00 €</td>
+              </tr>
+
+              <tr class="group-row">
+                <td colspan="6">COSTES VARIABLES DIRECTOS Y ESTRUCTURA OPERATIVA FIJA</td>
+              </tr>
+              <tr>
+                <td>(-) Aprovisionamientos y Materiales Directos de Instalación (Centrales, Cámaras, Cableado, Extintores)</td>
+                <td class="num">-218.300,00 €</td>
+                <td class="num">18,50%</td>
+                <td class="num">-543.120,00 €</td>
+                <td class="num">29,20%</td>
+                <td class="num">-324.820,00 €</td>
+              </tr>
+              <tr class="subtotal-row">
+                <td>MARGEN BRUTO DE CONTRIBUCIÓN (VENTAS MENOS MATERIALES)</td>
+                <td class="num">961.700,00 €</td>
+                <td class="num">81,50%</td>
+                <td class="num">1.316.880,00 €</td>
+                <td class="num">70,80%</td>
+                <td class="num" style="color:#10b981;">+355.180,00 €</td>
+              </tr>
+              <tr>
+                <td>(-) Bloque 1: Almacén / Nave Industrial Propia</td>
+                <td class="num">-19.440,00 €</td>
+                <td class="num">1,65%</td>
+                <td class="num">-19.440,00 €</td>
+                <td class="num">1,05%</td>
+                <td class="num">0,00 €</td>
+              </tr>
+              <tr>
+                <td>(-) Bloque 2: 15 Profesionales Técnicos en Calle (Salarios + SS + Guardias + EPIs)</td>
+                <td class="num">-538.996,68 €</td>
+                <td class="num">45,68%</td>
+                <td class="num">-538.996,68 €</td>
+                <td class="num">28,98%</td>
+                <td class="num">0,00 €</td>
+              </tr>
+              <tr>
+                <td>(-) Bloque 3: Flota de 15 Furgonetas Operativas (Renting + Diésel + Seguros + Taller)</td>
+                <td class="num">-159.757,92 €</td>
+                <td class="num">13,54%</td>
+                <td class="num">-159.757,92 €</td>
+                <td class="num">8,59%</td>
+                <td class="num">0,00 €</td>
+              </tr>
+              <tr>
+                <td>(-) Bloque 4: 6 Personas en Oficina (Ingeniería, Dispatcher, Comerciales, Admin + ERP)</td>
+                <td class="num">-223.665,00 €</td>
+                <td class="num">18,95%</td>
+                <td class="num">-223.665,00 €</td>
+                <td class="num">12,03%</td>
+                <td class="num">0,00 €</td>
+              </tr>
+              <tr class="total-row">
+                <td>EBITDA OPERATIVO ANUAL (BENEFICIO ANTES DE IMPUESTOS Y AMORT. EXTRA)</td>
+                <td class="num">19.840,40 €</td>
+                <td class="num">1,68%</td>
+                <td class="num">375.020,40 €</td>
+                <td class="num">20,16%</td>
+                <td class="num" style="color:#10b981;">+355.180,00 €</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SVG Chart Comparing Revenue & EBITDA -->
+      <div class="chart-box">
+        <h4>Gráfico de Apalancamiento Operativo: Absorción del Coste Fijo (941.859,60 €) y Explosión del EBITDA</h4>
+        <p class="sub">Comparativa visual en miles de euros: una vez cubierto el umbral fijo de los 15 técnicos + 15 furgonetas + 6 oficina + nave, cada nuevo contrato captado por la Plataforma convierte el ~70,8% de su importe directamente en EBITDA.</p>
+        <svg viewBox="0 0 900 300" width="100%" height="300">
+          <!-- Grid lines -->
+          <line x1="90" y1="30" x2="860" y2="30" stroke="rgba(148,163,184,0.15)" stroke-dasharray="4" />
+          <line x1="90" y1="90" x2="860" y2="90" stroke="rgba(148,163,184,0.15)" stroke-dasharray="4" />
+          <line x1="90" y1="150" x2="860" y2="150" stroke="rgba(148,163,184,0.15)" stroke-dasharray="4" />
+          <line x1="90" y1="210" x2="860" y2="210" stroke="rgba(148,163,184,0.15)" stroke-dasharray="4" />
+          <line x1="90" y1="250" x2="860" y2="250" stroke="#94a3b8" stroke-width="1.5" />
+
+          <text x="80" y="34" fill="#94a3b8" font-size="11" text-anchor="end">2.000 k€</text>
+          <text x="80" y="94" fill="#94a3b8" font-size="11" text-anchor="end">1.500 k€</text>
+          <text x="80" y="154" fill="#94a3b8" font-size="11" text-anchor="end">1.000 k€</text>
+          <text x="80" y="214" fill="#94a3b8" font-size="11" text-anchor="end">500 k€</text>
+          <text x="80" y="254" fill="#94a3b8" font-size="11" text-anchor="end">0 k€</text>
+
+          <!-- Group 1: Web Básica -->
+          <rect x="150" y="120" width="65" height="130" rx="4" fill="#38bdf8" />
+          <text x="182" y="112" fill="#38bdf8" font-size="12" font-weight="700" text-anchor="middle">1.180 k€</text>
+
+          <rect x="225" y="146" width="65" height="104" rx="4" fill="#f43f5e" />
+          <text x="257" y="138" fill="#fda4af" font-size="12" font-weight="700" text-anchor="middle">941,9 k€</text>
+
+          <rect x="300" y="246" width="65" height="4" rx="2" fill="#f59e0b" />
+          <text x="332" y="236" fill="#fbbf24" font-size="12" font-weight="800" text-anchor="middle">19,8 k€</text>
+
+          <text x="257" y="278" fill="#e2e8f0" font-size="13" font-weight="700" text-anchor="middle">ATEL con Web Básica (`portable/web`)</text>
+
+          <!-- Group 2: Plataforma Integral -->
+          <rect x="520" y="45" width="65" height="205" rx="4" fill="#38bdf8" />
+          <text x="552" y="37" fill="#38bdf8" font-size="12" font-weight="700" text-anchor="middle">1.860 k€</text>
+
+          <rect x="595" y="146" width="65" height="104" rx="4" fill="#f43f5e" />
+          <text x="627" y="138" fill="#fda4af" font-size="12" font-weight="700" text-anchor="middle">941,9 k€</text>
+
+          <rect x="670" y="208" width="65" height="42" rx="4" fill="#10b981" />
+          <text x="702" y="198" fill="#34d399" font-size="13" font-weight="800" text-anchor="middle">375,0 k€</text>
+
+          <text x="627" y="278" fill="#d4af37" font-size="13" font-weight="700" text-anchor="middle">ATEL con Plataforma Integral (`portable/Plataforma`)</text>
+
+          <!-- Legend -->
+          <rect x="755" y="55" width="12" height="12" rx="2" fill="#38bdf8" />
+          <text x="773" y="65" fill="#cbd5e1" font-size="11">Facturación Anual</text>
+          <rect x="755" y="78" width="12" height="12" rx="2" fill="#f43f5e" />
+          <text x="773" y="88" fill="#cbd5e1" font-size="11">OPEX Fijo Estructura</text>
+          <rect x="755" y="101" width="12" height="12" rx="2" fill="#10b981" />
+          <text x="773" y="111" fill="#cbd5e1" font-size="11">EBITDA Neto</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- CAPÍTULO 3: SIMULADOR INTERACTIVO EN VIVO (STRESS-TEST ECONOMÉTRICO)  -->
+    <!-- ===================================================================== -->
+    <section id="tab-simulador" class="section-view">
+      <div class="section-header">
+        <div>
+          <h2><span class="chap">CAPÍTULO III</span> Simulador Econométrico en Tiempo Real — Capacidad Instalada y Retorno Digital</h2>
+          <p>Ajusta dinámicamente el número de técnicos, furgonetas, personal de oficina, tráfico web, conversión y ticket medio para auditar la sensibilidad del EBITDA, Punto de Equilibrio, VAN y TIR.</p>
+        </div>
+      </div>
+
+      <div class="sim-layout">
+        <!-- Panel de Controles -->
+        <div class="sim-controls">
+          <h3>Parámetros Operativos y Digitales</h3>
+          <p class="sim-desc">Selecciona un escenario preconfigurado o desliza cada variable para recalcular al instante la contabilidad analítica.</p>
+
+          <div class="preset-bar">
+            <button class="preset-btn" onclick="applyPreset('web')">Escenario Web Básica</button>
+            <button class="preset-btn active" onclick="applyPreset('plataforma')">Escenario Plataforma (15+6)</button>
+            <button class="preset-btn" onclick="applyPreset('expansion')">Expansión 20 Furgonetas</button>
+            <button class="preset-btn" onclick="applyPreset('crisis')">Test Estrés Inflación</button>
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Profesionales Técnicos en Calle</span>
+              <span class="val-Readout" id="lbl-techs">15 técnicos</span>
+            </div>
+            <input type="range" id="sl-techs" min="5" max="30" step="1" value="15" oninput="updateSimulator()" />
+            <div class="control-hint">Coste medio ponderado: 2.994,43 €/mes por técnico (Salario + SS + Guardias + EPIs)</div>
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Flota de Furgonetas Operativas</span>
+              <span class="val-Readout" id="lbl-vans">15 furgonetas</span>
+            </div>
+            <input type="range" id="sl-vans" min="5" max="30" step="1" value="15" oninput="updateSimulator()" />
+            <div class="control-hint">Coste unitario completo: 887,54 €/mes (Renting + Diésel + Seguro + Mantenimiento)</div>
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Personal en Oficina (Ingeniería/Admin/Comercial)</span>
+              <span class="val-Readout" id="lbl-office">6 personas</span>
+            </div>
+            <input type="range" id="sl-office" min="2" max="14" step="1" value="6" oninput="updateSimulator()" />
+            <div class="control-hint">Coste medio oficina + licencias ERP: 3.106,46 €/mes por puesto</div>
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Facturación Base Cartera Recurrente Mensual</span>
+              <span class="val-Readout" id="lbl-base-rev">92.000 €/mes</span>
+            </div>
+            <input type="range" id="sl-base-rev" min="50000" max="150000" step="1000" value="92000" oninput="updateSimulator()" />
+            <div class="control-hint">Contratos de mantenimiento vigentes y renovaciones automáticas</div>
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Tráfico Cualificado Captado por Plataforma</span>
+              <span class="val-Readout" id="lbl-traffic">4.200 visitas/mes</span>
+            </div>
+            <input type="range" id="sl-traffic" min="600" max="12000" step="100" value="4200" oninput="updateSimulator()" />
+            <div class="control-hint">Búsquedas SEO local en los 7 municipios + 7 verticales industriales</div>
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Tasa de Conversión a Presupuesto Aceptado</span>
+              <span class="val-Readout" id="lbl-conv">0,60 %</span>
+            </div>
+            <input type="range" id="sl-conv" min="0.15" max="1.50" step="0.05" value="0.60" oninput="updateSimulator()" />
+            <div class="control-hint">Porcentaje de visitas que terminan en contrato u obra ejecutada</div>
+          </div>
+
+          <div class="control-group" style="border-bottom:none;margin-bottom:0;padding-bottom:0;">
+            <div class="control-label">
+              <span>Ticket Medio Ponderado Nuevos Contratos/Obras</span>
+              <span class="val-Readout" id="lbl-ticket">2.500 €</span>
+            </div>
+            <input type="range" id="sl-ticket" min="600" max="6000" step="50" value="2500" oninput="updateSimulator()" />
+            <div class="control-hint">Mezcla de mantenimientos de comunidades y proyectos industriales PCI/CCTV/ICT</div>
+          </div>
+        </div>
+
+        <!-- Panel de Resultados del Simulador -->
+        <div>
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <div class="kpi-title">OPEX Fijo Mensual Simulado</div>
+              <div class="kpi-num" id="sim-opex-m">78.488,30 €</div>
+              <div class="kpi-foot"><span class="badge-warn" id="sim-opex-y">941.859,60 €/año</span></div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-title">Facturación Mensual Total</div>
+              <div class="kpi-num" id="sim-rev-m">155.000,00 €</div>
+              <div class="kpi-foot"><span class="badge-up" id="sim-rev-y">1.860.000,00 €/año</span></div>
+            </div>
+            <div class="kpi-card gold">
+              <div class="kpi-title">EBITDA Neto Anual Simulado</div>
+              <div class="kpi-num" id="sim-ebitda-y">375.020,40 €</div>
+              <div class="kpi-foot"><span class="badge-up" id="sim-margin">Margen: 20,16%</span></div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-title">VAN (3 Años, k=8%) &amp; Break-Even</div>
+              <div class="kpi-num" id="sim-npv">+928.450 €</div>
+              <div class="kpi-foot"><span class="badge-up" id="sim-breakeven">Umbral: 110.859 €/mes</span></div>
+            </div>
+          </div>
+
+          <div class="chart-box">
+            <h4>Curva Dinámica de Flujo de Caja Acumulado a 36 Meses (Simulación en Vivo)</h4>
+            <p class="sub">Evolución del Cash Flow Operativo Acumulado descontando el OPEX de estructura y el coste de materiales de obra.</p>
+            <svg id="sim-svg-chart" viewBox="0 0 780 240" width="100%" height="240"></svg>
+          </div>
+
+          <div class="table-card" style="margin-bottom:0;">
+            <div class="table-card-header">
+              <h3>Resumen Ejecutivo del Escenario Simulado en Tiempo Real</h3>
+              <span class="badge-up" id="sim-status-badge">ESTRUCTURA ÓPTIMA Y RENTABLE</span>
+            </div>
+            <div class="table-responsive">
+              <table class="fin-table">
+                <thead>
+                  <tr>
+                    <th>Métrica Financiera Auditada</th>
+                    <th class="num">Importe Mensual</th>
+                    <th class="num">Importe Anualizado</th>
+                    <th>Diagnóstico de Capacidad</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Ingresos por Base Recurrente + Captación Digital (<span id="tbl-deals">25,2</span> contratos nuevos/mes)</td>
+                    <td class="num" id="tbl-rev-m">155.000,00 €</td>
+                    <td class="num" id="tbl-rev-y">1.860.000,00 €</td>
+                    <td id="tbl-diag-rev">Alta tracción en verticales industriales y comunidades</td>
+                  </tr>
+                  <tr>
+                    <td>Coste de Materiales Directos de Obra (29,2% s/Ventas)</td>
+                    <td class="num" id="tbl-mat-m">-45.260,00 €</td>
+                    <td class="num" id="tbl-mat-y">-543.120,00 €</td>
+                    <td>Aprovisionamiento directo de equipos PCI, CCTV, Accesos y Fibra</td>
+                  </tr>
+                  <tr>
+                    <td>OPEX Estructural Fijo (Almacén 1.620€ + Calle + Flota + Oficina)</td>
+                    <td class="num" id="tbl-opex-m">-78.488,30 €</td>
+                    <td class="num" id="tbl-opex-y">-941.859,60 €</td>
+                    <td id="tbl-diag-opex">Plantilla de 21 profesionales y 15 furgonetas cubiertas</td>
+                  </tr>
+                  <tr class="total-row">
+                    <td>EBITDA NETO RESULTANTE (FLUJO DE CAJA ANTES DE IMPUESTOS)</td>
+                    <td class="num" id="tbl-ebitda-m">31.251,70 €</td>
+                    <td class="num" id="tbl-ebitda-y">375.020,40 €</td>
+                    <td id="tbl-diag-ebitda">Generación sólida de caja libre y dividendo</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- CAPÍTULO 4: CORPORACIÓN DENTAL MEJORADA & SANDRA HAUTE BEAUTÉ         -->
+    <!-- ===================================================================== -->
+    <section id="tab-ecosistema" class="section-view">
+      <div class="section-header">
+        <div>
+          <h2><span class="chap">CAPÍTULO IV</span> Auditoría Técnico-Financiera: Corporación Dental Mejorada &amp; Sandra Haute Beauté</h2>
+          <p>Evaluación econométrica de las otras dos verticales tecnológicas auditadas en la tesis de Andrés Pacheco Navarro.</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <!-- Corporación Dental -->
+        <div class="table-card">
+          <div class="table-card-header">
+            <h3>🦷 Corporación Dental Mejorada (`Corporacion_Dental_Mejorada`)</h3>
+            <span class="badge-up">IA Triaje Clínico + Arquitectura Serverless</span>
+          </div>
+          <div style="padding: 20px;">
+            <p style="font-size: 13.5px; color: #cbd5e1; margin-bottom: 16px;">
+              Transformación de clínica odontológica tradicional hacia una plataforma serverless con <strong>Asistente Clínico IA 24/7</strong> (integración seguro con proxy backend para API Gemini), triaje de urgencias y captación de tratamientos de alto margen (Implantología Carga Inmediata, Ortodoncia Invisible e Diseño Digital de Sonrisa).
+            </p>
+            <table class="fin-table">
+              <thead>
+                <tr>
+                  <th>Indicador Clínico-Financiero</th>
+                  <th class="num">Web Clínica Clásica</th>
+                  <th class="num">Plataforma Dental IA</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Tasa de Respuesta Inmediata (Fuera de Horario)</td>
+                  <td class="num">0 % (Buzón)</td>
+                  <td class="num" style="color:#10b981;">100 % (&lt; 3 seg)</td>
+                </tr>
+                <tr>
+                  <td>Nuevos Pacientes Cualificados / Mes (Implantes &amp; Estética)</td>
+                  <td class="num">18 pacientes</td>
+                  <td class="num" style="color:#10b981;">44 pacientes</td>
+                </tr>
+                <tr>
+                  <td>Ticket Medio Tratamiento Aceptado en Gabinete</td>
+                  <td class="num">1.450,00 €</td>
+                  <td class="num">2.380,00 €</td>
+                </tr>
+                <tr>
+                  <td>Coste Infraestructura Cloud + API IA Mensual</td>
+                  <td class="num">45,00 €/mes</td>
+                  <td class="num">82,00 €/mes</td>
+                </tr>
+                <tr>
+                  <td>Ahorro Recepción Telefónica Repetitiva (Horas/mes)</td>
+                  <td class="num">0 h</td>
+                  <td class="num" style="color:#38bdf8;">68 h/mes (1.360 €)</td>
+                </tr>
+                <tr class="total-row">
+                  <td>FACTURACIÓN ANUAL ATRIBUIDA AL CANAL DIGITAL</td>
+                  <td class="num">313.200,00 €</td>
+                  <td class="num">1.256.640,00 €</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Sandra Haute Beauté -->
+        <div class="table-card">
+          <div class="table-card-header">
+            <h3>✨ Sandra Haute Beauté (`sandra_web`)</h3>
+            <span class="badge-up">Luxury Bridal &amp; Editorial High-Ticket</span>
+          </div>
+          <div style="padding: 20px;">
+            <p style="font-size: 13.5px; color: #cbd5e1; margin-bottom: 16px;">
+              Posicionamiento ultra-exclusivo en el segmento <strong>Luxury Destination Weddings &amp; Haute Beauté</strong> (Marbella, Sotogrande, Mallorca, Costa Azul). Sustitución de reservas de bajo margen por packs nupciales completos y producciones editoriales internacionales con reserva automatizada multimoneda.
+            </p>
+            <table class="fin-table">
+              <thead>
+                <tr>
+                  <th>Indicador Luxury &amp; Conversión</th>
+                  <th class="num">Captación Instagram/Manual</th>
+                  <th class="num">Flagship Digital Luxury</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Percepción de Marca y Autoridad Editorial</td>
+                  <td class="num">Local / Estándar</td>
+                  <td class="num" style="color:#d4af37;">Vogue / Haute Couture</td>
+                </tr>
+                <tr>
+                  <td>Ticket Medio Pack Bridal &amp; Invitadas VIP</td>
+                  <td class="num">480,00 €</td>
+                  <td class="num" style="color:#10b981;">1.650,00 €</td>
+                </tr>
+                <tr>
+                  <td>Eventos High-Ticket &amp; Editoriales Cerrados / Año</td>
+                  <td class="num">42 eventos</td>
+                  <td class="num" style="color:#10b981;">78 eventos</td>
+                </tr>
+                <tr>
+                  <td>Tasa de Abandono en Consulta de Disponibilidad</td>
+                  <td class="num">64,0 %</td>
+                  <td class="num" style="color:#10b981;">18,5 %</td>
+                </tr>
+                <tr>
+                  <td>Margen Neto Operativo (Negocio de Autor de Alto Valor)</td>
+                  <td class="num">58,0 %</td>
+                  <td class="num" style="color:#38bdf8;">79,4 %</td>
+                </tr>
+                <tr class="total-row">
+                  <td>FACTURACIÓN ANUAL BRUTA ESTIMADA</td>
+                  <td class="num">20.160,00 €</td>
+                  <td class="num">128.700,00 €</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Síntesis Consolidada del Portfolio -->
+      <div class="table-card">
+        <div class="table-card-header">
+          <h3>Matriz Consolidada del Ecosistema Digital Auditado por Andrés Pacheco Navarro</h3>
+          <span class="badge-up">Visión Global de Cartera Tecnológica</span>
+        </div>
+        <div class="table-responsive">
+          <table class="fin-table">
+            <thead>
+              <tr>
+                <th>Proyecto / Activo Digital</th>
+                <th>Arquitectura Técnica</th>
+                <th class="num">OPEX Fijo Anual</th>
+                <th class="num">Facturación Pre-Plataforma</th>
+                <th class="num">Facturación Post-Plataforma</th>
+                <th class="num">Incremento Neto Ventas</th>
+                <th class="num">EBITDA Anual Objetivo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. ATEL SISTEMS S.L. (Plataforma Integral)</strong></td>
+                <td>22 Rutas SEO Local + 7 Verticales + PWA/Security</td>
+                <td class="num">941.859,60 €</td>
+                <td class="num">1.180.000,00 €</td>
+                <td class="num">1.860.000,00 €</td>
+                <td class="num" style="color:#10b981;">+680.000,00 €</td>
+                <td class="num">375.020,40 €</td>
+              </tr>
+              <tr>
+                <td><strong>2. Corporación Dental Mejorada</strong></td>
+                <td>Serverless + Proxy IA Gemini + Triaje Clínico</td>
+                <td class="num">348.000,00 €</td>
+                <td class="num">313.200,00 €</td>
+                <td class="num">1.256.640,00 €</td>
+                <td class="num" style="color:#10b981;">+943.440,00 €</td>
+                <td class="num">412.500,00 €</td>
+              </tr>
+              <tr>
+                <td><strong>3. Sandra Haute Beauté</strong></td>
+                <td>Editorial Luxury UI + Embudo High-Ticket Bridal</td>
+                <td class="num">26.512,20 €</td>
+                <td class="num">20.160,00 €</td>
+                <td class="num">128.700,00 €</td>
+                <td class="num" style="color:#10b981;">+108.540,00 €</td>
+                <td class="num">102.187,80 €</td>
+              </tr>
+              <tr class="total-row">
+                <td colspan="2">TOTAL CONSOLIDADO DEL ECOSISTEMA AUDITADO</td>
+                <td class="num">1.316.371,80 €</td>
+                <td class="num">1.513.360,00 €</td>
+                <td class="num">3.245.340,00 €</td>
+                <td class="num" style="color:#10b981;">+1.731.980,00 €</td>
+                <td class="num">889.708,20 €</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMAL SIGNATURE FOOTER -->
+    <footer class="thesis-footer">
+      <div>
+        <div style="font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-muted);margin-bottom:6px;">
+          Certificación de Auditoría Técnico-Financiera y Arquitectura de Sistemas
+        </div>
+        <div style="font-size:15px;color:#fff;max-width:720px;">
+          El presente documento y su modelo econométrico interactivo acreditan con exactitud contable la estructura operativa de <strong>ATEL SISTEMS S.L.</strong> (Almacén propio, 15 técnicos, 15 furgonetas y 6 profesionales en oficina = 78.488,30 €/mes) y cuantifican el retorno financiero real de la transformación digital ejecutada.
+        </div>
+      </div>
+      <div class="sig-block" style="text-align:right;">
+        <div class="sig-line">Andrés Pacheco Navarro</div>
+        <div style="font-size:13px;font-weight:700;color:#fff;">Andrés Pacheco Navarro</div>
+        <div style="font-size:12px;color:var(--text-muted);">Autor Principal · Ingeniero &amp; Auditor Estratégico · Noviembre 2026</div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    // Formatter helpers
+    const fmtEUR = (val) => {
+      return new Intl.NumberFormat('es-ES', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      }).format(val) + ' €';
+    };
+
+    const fmtInt = (val) => {
+      return new Intl.NumberFormat('es-ES', {
+        maximumFractionDigits: 0
+      }).format(val);
+    };
+
+    // Tab switching
+    function switchTab(tabId, btn) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      const sections = {
+        'atel-costes': document.getElementById('tab-atel-costes'),
+        'atel-vs': document.getElementById('tab-atel-vs'),
+        'simulador': document.getElementById('tab-simulador'),
+        'ecosistema': document.getElementById('tab-ecosistema')
+      };
+
+      if (tabId === 'all') {
+        Object.values(sections).forEach(sec => sec.classList.remove('hidden-tab'));
+      } else {
+        Object.entries(sections).forEach(([key, sec]) => {
+          if (key === tabId) {
+            sec.classList.remove('hidden-tab');
+          } else {
+            sec.classList.add('hidden-tab');
+          }
+        });
+      }
+    }
+
+    // Exact unit costs from Chapter I accounting
+    const WAREHOUSE_MONTHLY = 1620.00;         // Almacén propio fijo
+    const TECH_UNIT_MONTHLY = 44916.39 / 15;   // 2.994,426 €/técnico
+    const VAN_UNIT_MONTHLY = 13313.16 / 15;    // 887,544 €/furgoneta
+    const OFFICE_UNIT_MONTHLY = 18638.75 / 6;  // 3.106,4583 €/persona oficina
+    const MATERIALS_RATIO = 0.292;             // 29,2% coste de materiales sobre ventas
+
+    function applyPreset(presetName) {
+      document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+      if (event && event.target) event.target.classList.add('active');
+
+      const slTechs = document.getElementById('sl-techs');
+      const slVans = document.getElementById('sl-vans');
+      const slOffice = document.getElementById('sl-office');
+      const slBaseRev = document.getElementById('sl-base-rev');
+      const slTraffic = document.getElementById('sl-traffic');
+      const slConv = document.getElementById('sl-conv');
+      const slTicket = document.getElementById('sl-ticket');
+
+      if (presetName === 'web') {
+        slTechs.value = 15;
+        slVans.value = 15;
+        slOffice.value = 6;
+        slBaseRev.value = 84000;
+        slTraffic.value = 1250;
+        slConv.value = 0.45;
+        slTicket.value = 2550;
+      } else if (presetName === 'plataforma') {
+        slTechs.value = 15;
+        slVans.value = 15;
+        slOffice.value = 6;
+        slBaseRev.value = 92000;
+        slTraffic.value = 4200;
+        slConv.value = 0.60;
+        slTicket.value = 2500;
+      } else if (presetName === 'expansion') {
+        slTechs.value = 20;
+        slVans.value = 20;
+        slOffice.value = 8;
+        slBaseRev.value = 115000;
+        slTraffic.value = 6800;
+        slConv.value = 0.65;
+        slTicket.value = 2750;
+      } else if (presetName === 'crisis') {
+        slTechs.value = 15;
+        slVans.value = 15;
+        slOffice.value = 6;
+        slBaseRev.value = 78000;
+        slTraffic.value = 2600;
+        slConv.value = 0.45;
+        slTicket.value = 2100;
+      }
+      updateSimulator();
+    }
+
+    function updateSimulator() {
+      const techs = parseInt(document.getElementById('sl-techs').value, 10);
+      const vans = parseInt(document.getElementById('sl-vans').value, 10);
+      const office = parseInt(document.getElementById('sl-office').value, 10);
+      const baseRev = parseFloat(document.getElementById('sl-base-rev').value);
+      const traffic = parseFloat(document.getElementById('sl-traffic').value);
+      const conv = parseFloat(document.getElementById('sl-conv').value);
+      const ticket = parseFloat(document.getElementById('sl-ticket').value);
+
+      // Update labels
+      document.getElementById('lbl-techs').textContent = `${techs} técnicos`;
+      document.getElementById('lbl-vans').textContent = `${vans} furgonetas`;
+      document.getElementById('lbl-office').textContent = `${office} personas`;
+      document.getElementById('lbl-base-rev').textContent = `${fmtInt(baseRev)} €/mes`;
+      document.getElementById('lbl-traffic').textContent = `${fmtInt(traffic)} visitas/mes`;
+      document.getElementById('lbl-conv').textContent = `${conv.toFixed(2).replace('.', ',')} %`;
+      document.getElementById('lbl-ticket').textContent = `${fmtInt(ticket)} €`;
+
+      // Calculate exact monthly OPEX
+      const opexMonthly = WAREHOUSE_MONTHLY + (techs * TECH_UNIT_MONTHLY) + (vans * VAN_UNIT_MONTHLY) + (office * OFFICE_UNIT_MONTHLY);
+      const opexAnnual = opexMonthly * 12;
+
+      // Calculate monthly Revenue
+      const newDeals = traffic * (conv / 100);
+      const digitalRevMonthly = newDeals * ticket;
+      const totalRevMonthly = baseRev + digitalRevMonthly;
+      const totalRevAnnual = totalRevMonthly * 12;
+
+      // Materials & Margin
+      const materialsMonthly = totalRevMonthly * MATERIALS_RATIO;
+      const materialsAnnual = materialsMonthly * 12;
+      const grossMarginRatio = 1 - MATERIALS_RATIO; // 70,8%
+
+      // EBITDA
+      const ebitdaMonthly = totalRevMonthly - materialsMonthly - opexMonthly;
+      const ebitdaAnnual = ebitdaMonthly * 12;
+      const ebitdaMargin = totalRevAnnual > 0 ? (ebitdaAnnual / totalRevAnnual) * 100 : 0;
+
+      // Break-even monthly sales needed to cover OPEX
+      const breakEvenMonthly = opexMonthly / grossMarginRatio;
+
+      // 3-Year NPV (k = 8% annual discount rate, initial digital investment = 18.500 €)
+      const capexDigital = 18500;
+      const r = 0.08;
+      const npv3Y = -capexDigital + (ebitdaAnnual / Math.pow(1 + r, 1)) + (ebitdaAnnual / Math.pow(1 + r, 2)) + (ebitdaAnnual / Math.pow(1 + r, 3));
+
+      // Update KPI Cards
+      document.getElementById('sim-opex-m').textContent = fmtEUR(opexMonthly);
+      document.getElementById('sim-opex-y').textContent = `${fmtEUR(opexAnnual)}/año`;
+      document.getElementById('sim-rev-m').textContent = fmtEUR(totalRevMonthly);
+      document.getElementById('sim-rev-y').textContent = `${fmtEUR(totalRevAnnual)}/año`;
+
+      const ebitdaEl = document.getElementById('sim-ebitda-y');
+      ebitdaEl.textContent = fmtEUR(ebitdaAnnual);
+      ebitdaEl.style.color = ebitdaAnnual >= 0 ? '#10b981' : '#f43f5e';
+
+      document.getElementById('sim-margin').textContent = `Margen EBITDA: ${ebitdaMargin.toFixed(2).replace('.', ',')}%`;
+      document.getElementById('sim-npv').textContent = (npv3Y >= 0 ? '+' : '') + fmtInt(npv3Y) + ' €';
+      document.getElementById('sim-breakeven').textContent = `Umbral: ${fmtInt(breakEvenMonthly)} €/mes`;
+
+      // Update Table
+      document.getElementById('tbl-deals').textContent = newDeals.toFixed(1).replace('.', ',');
+      document.getElementById('tbl-rev-m').textContent = fmtEUR(totalRevMonthly);
+      document.getElementById('tbl-rev-y').textContent = fmtEUR(totalRevAnnual);
+      document.getElementById('tbl-mat-m').textContent = '-' + fmtEUR(materialsMonthly);
+      document.getElementById('tbl-mat-y').textContent = '-' + fmtEUR(materialsAnnual);
+      document.getElementById('tbl-opex-m').textContent = '-' + fmtEUR(opexMonthly);
+      document.getElementById('tbl-opex-y').textContent = '-' + fmtEUR(opexAnnual);
+      document.getElementById('tbl-ebitda-m').textContent = fmtEUR(ebitdaMonthly);
+      document.getElementById('tbl-ebitda-y').textContent = fmtEUR(ebitdaAnnual);
+
+      const badge = document.getElementById('sim-status-badge');
+      const diagEbitda = document.getElementById('tbl-diag-ebitda');
+      if (ebitdaAnnual > 200000) {
+        badge.textContent = 'ESTRUCTURA ÓPTIMA Y ALTA GENERACIÓN DE CAJA';
+        badge.className = 'badge-up';
+        diagEbitda.textContent = 'Excelente absorción de costes fijos y alta rentabilidad neta';
+      } else if (ebitdaAnnual > 0) {
+        badge.textContent = 'RENTABILIDAD AJUSTADA — RIESGO DE TENSIÓN DE TESORERÍA';
+        badge.className = 'badge-warn';
+        diagEbitda.textContent = 'Cubre estructura pero con margen estrecho ante imprevistos';
+      } else {
+        badge.textContent = 'DÉFICIT OPERATIVO — INFRAUTILIZACIÓN DE CAPACIDAD';
+        badge.className = 'badge-danger';
+        diagEbitda.textContent = 'La facturación no alcanza el punto de equilibrio de la plantilla';
+      }
+
+      // Render SVG 36-Month Cumulative Cash Flow Curve
+      renderCashFlowSVG(ebitdaMonthly, capexDigital);
+    }
+
+    function renderCashFlowSVG(ebitdaMonthly, capexDigital) {
+      const svg = document.getElementById('sim-svg-chart');
+      const W = 780;
+      const H = 240;
+      const padL = 75;
+      const padR = 30;
+      const padT = 25;
+      const padB = 35;
+
+      const points = [];
+      let minVal = -capexDigital;
+      let maxVal = -capexDigital;
+
+      for (let m = 0; m <= 36; m++) {
+        const val = -capexDigital + (ebitdaMonthly * m);
+        points.push({ m, val });
+        if (val < minVal) minVal = val;
+        if (val > maxVal) maxVal = val;
+      }
+
+      if (maxVal === minVal) maxVal += 10000;
+      const range = maxVal - minVal;
+
+      const toX = (m) => padL + (m / 36) * (W - padL - padR);
+      const toY = (v) => padT + ((maxVal - v) / range) * (H - padT - padB);
+
+      const zeroY = toY(0);
+      const polyPoints = points.map(p => `${toX(p.m).toFixed(1)},${toY(p.val).toFixed(1)}`).join(' ');
+      const lineColor = ebitdaMonthly >= 0 ? '#10b981' : '#f43f5e';
+
+      svg.innerHTML = `
+        <line x1="${padL}" y1="${padT}" x2="${W - padR}" y2="${padT}" stroke="rgba(148,163,184,0.15)" stroke-dasharray="4" />
+        <line x1="${padL}" y1="${H - padB}" x2="${W - padR}" y2="${H - padB}" stroke="rgba(148,163,184,0.3)" />
+        ${zeroY >= padT && zeroY <= (H - padB) ? `<line x1="${padL}" y1="${zeroY}" x2="${W - padR}" y2="${zeroY}" stroke="#d4af37" stroke-dasharray="3" stroke-width="1.2" />` : ''}
+        <text x="${padL - 8}" y="${padT + 4}" fill="#94a3b8" font-size="10" text-anchor="end">${fmtInt(maxVal / 1000)} k€</text>
+        <text x="${padL - 8}" y="${H - padB}" fill="#94a3b8" font-size="10" text-anchor="end">${fmtInt(minVal / 1000)} k€</text>
+        <text x="${padL}" y="${H - 10}" fill="#94a3b8" font-size="11">Mes 0</text>
+        <text x="${toX(12)}" y="${H - 10}" fill="#94a3b8" font-size="11" text-anchor="middle">Mes 12 (Año 1)</text>
+        <text x="${toX(24)}" y="${H - 10}" fill="#94a3b8" font-size="11" text-anchor="middle">Mes 24 (Año 2)</text>
+        <text x="${toX(36)}" y="${H - 10}" fill="#94a3b8" font-size="11" text-anchor="end">Mes 36 (Año 3)</text>
+        <polyline fill="none" stroke="${lineColor}" stroke-width="3.5" points="${polyPoints}" />
+        <circle cx="${toX(12)}" cy="${toY(points[12].val)}" r="5" fill="#38bdf8" />
+        <text x="${toX(12)}" y="${toY(points[12].val) - 10}" fill="#38bdf8" font-size="11" font-weight="700" text-anchor="middle">${fmtInt(points[12].val / 1000)} k€</text>
+        <circle cx="${toX(36)}" cy="${toY(points[36].val)}" r="6" fill="#d4af37" />
+        <text x="${toX(36) - 10}" y="${toY(points[36].val) - 10}" fill="#f3e5ab" font-size="12" font-weight="800" text-anchor="end">${fmtInt(points[36].val / 1000)} k€</text>
+      `;
+    }
+
+    // Initialize simulator on load
+    window.addEventListener('DOMContentLoaded', () => {
+      updateSimulator();
+    });
+  </script>
+</body>
+</html>

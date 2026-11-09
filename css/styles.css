@@ -40,3 +40,215 @@
   .site-header .nav-menu.mobile .nav-mega-dropdown { position: static; width: 100%; max-width: 100%; transform: none; box-shadow: none; border: none; padding: 8px 0 10px; background: 0 0; }
   .site-header .nav-menu.mobile .mega-dropdown-grid { grid-template-columns: 1fr; gap: 8px; }
 }
+
+
+/* === PARCHE DIRECTOR TÉCNICO (CTO) — CORRECCIÓN VISUAL Y RESPONSIVE === */
+.pricing-featured-badge {
+    white-space: nowrap !important;
+    width: max-content !important;
+    max-width: calc(100% - 20px) !important;
+    z-index: 3 !important;
+    top: -14px !important;
+    line-height: 1.25 !important;
+    text-align: center !important;
+}
+.pricing-card-featured {
+    position: relative !important;
+    padding-top: 28px !important;
+}
+.pricing-card-featured .pricing-card-header {
+    padding-top: 8px !important;
+}
+.corp-authority-bar .corp-authority-item {
+    opacity: 1 !important;
+    transform: none !important;
+}
+.logo-slider-item img, .logo-slider-item svg {
+    filter: contrast(1.06) !important;
+    opacity: 1 !important;
+}
+.pci-filter-bar {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+@media (max-width: 640px) {
+    .pricing-featured-badge {
+        white-space: normal !important;
+        width: auto !important;
+        position: static !important;
+        transform: none !important;
+        display: inline-block !important;
+        margin: 0 auto 10px auto !important;
+    }
+    .pricing-card-featured {
+        padding-top: 18px !important;
+    }
+}
+
+/* === PARCHES DE AUDITORÍA CTO (DEFECTOS #2, #3, #4, #6, #8) === */
+html, body { overflow-x: clip; max-width: 100%; }
+.pricing-featured-badge { white-space: nowrap !important; width: max-content !important; max-width: calc(100% - 24px) !important; z-index: 3 !important; overflow: hidden; text-overflow: ellipsis; }
+.pricing-card-featured .pricing-card-header { padding-top: 28px !important; }
+.hero-corp-features-list li, .panel-features-list li, .pricing-features li, .pillar-points li, .landing-check-list li { display: block !important; position: relative !important; padding-left: 28px !important; line-height: 1.45 !important; text-align: left; }
+.hero-corp-features-list li > i:first-child, .panel-features-list li > i:first-child, .pricing-features li > i:first-child, .pillar-points li > i:first-child, .landing-check-list li > i:first-child { position: absolute !important; left: 0 !important; top: 2px !important; }
+.corp-authority-bar .corp-authority-item, [data-aos] { opacity: 1 !important; transform: none !important; }
+.logo-slider-item img, .logo-slider-item svg { filter: contrast(1.12) !important; opacity: 1 !important; }
+.pci-filter-bar { max-width: 100%; box-sizing: border-box; overflow-x: auto; }
+
+.services-hub-panel.panel-bg-pci,.services-hub-panel.panel-bg-telecom,.services-hub-panel.panel-bg-cctv,.services-hub-panel.panel-bg-accesos,.services-hub-panel.panel-bg-redes,.services-hub-panel.panel-bg-mantenimiento{background:#ffffff !important;}
+
+
+/* === PARCHE QA PROJECT MANAGER — NAVBAR MEDIUM DESKTOP, SUBPÁGINAS Y TARJETAS === */
+@media (max-width: 1320px) and (min-width: 1141px) {
+    .site-header .navbar-container {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+        gap: 8px !important;
+    }
+    .site-header .logo img {
+        max-width: 142px !important;
+        height: auto !important;
+    }
+    .site-header .nav-menu {
+        gap: 3px !important;
+        flex-wrap: nowrap !important;
+    }
+    .site-header .nav-dropdown-toggle,
+    .site-header .nav-menu > li > a {
+        padding: 0 7px !important;
+        font-size: 0.74rem !important;
+        height: 34px !important;
+        white-space: nowrap !important;
+    }
+    .site-header .nav-menu > li > a.btn-nav-budget,
+    .site-header a.btn-nav-budget {
+        padding: 0 10px !important;
+        font-size: 0.75rem !important;
+    }
+}
+
+.pricing-card {
+    display: flex !important;
+    flex-direction: column !important;
+}
+.pricing-card-footer {
+    margin-top: auto !important;
+    padding-top: 16px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+}
+.partner-card {
+    display: flex !important;
+    flex-direction: column !important;
+}
+.partner-card-actions {
+    margin-top: auto !important;
+    padding-top: 14px !important;
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    gap: 8px !important;
+    align-items: center !important;
+}
+
+/* Clases de subpáginas PCI (/mantenimiento-contra-incendios/*) */
+.nav-pci-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #eef7ec;
+    color: #1e4d1a;
+    font-size: 0.84rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(68, 138, 60, 0.28);
+}
+.nav-phone-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #173215;
+    font-weight: 700;
+    font-size: 0.92rem;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    background: #f0f7ee;
+    border: 1px solid #c8e6c9;
+}
+.hero-badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(68, 138, 60, 0.12);
+    color: #1e4d1a;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(68, 138, 60, 0.3);
+}
+.btn-hero-call {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #ffffff;
+    color: #173215 !important;
+    border: 2px solid #448a3c;
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.96rem;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+}
+.btn-hero-call:hover {
+    background: #f0f7ee;
+    transform: translateY(-1px);
+}
+.mobile-bottom-bar {
+    display: none;
+}
+@media (max-width: 768px) {
+    .mobile-bottom-bar {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(8px);
+        border-top: 1px solid rgba(68, 138, 60, 0.25);
+        padding: 8px 12px;
+        gap: 8px;
+        box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08);
+    }
+    .mobile-bottom-btn {
+        flex: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 10px 8px;
+        border-radius: 8px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        text-decoration: none;
+        color: #ffffff !important;
+    }
+    .mobile-bottom-btn.btn-call {
+        background: #173215;
+    }
+    .mobile-bottom-btn.btn-wa {
+        background: #25d366;
+    }
+    .mobile-bottom-btn.btn-checkup {
+        background: #448a3c;
+    }
+    .nav-pci-badge {
+        display: none;
+    }
+}

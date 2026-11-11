@@ -7,6 +7,25 @@
 [build]
   publish = "."
 
+# Canonicalización de atelmalaga.com hacia https://www.atelmalaga.com/ (mantener dominio con www y SSL)
+[[redirects]]
+  from = "https://atelmalaga.com/*"
+  to = "https://www.atelmalaga.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://atelmalaga.com/*"
+  to = "https://www.atelmalaga.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.atelmalaga.com/*"
+  to = "https://www.atelmalaga.com/:splat"
+  status = 301
+  force = true
+
 # Canonicalización de dominio raíz sin www hacia www.atelsistems.com
 [[redirects]]
   from = "https://atelsistems.com/*"
